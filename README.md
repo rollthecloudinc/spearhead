@@ -84,9 +84,15 @@ Traditional databases are not used. Instead AWS cloud services are used to authe
 
 ## Cognito
 
+Users are stored in aws cognito. OAuth is used to authenticate and authorize resource access and operations in aws.
+
 ## s3
 
+Entities that would otherwise be stored in relational databaase tables are instead saved as json objects in aws s3.
+
 ## Open Search
+
+Entities are copied to open search either fully, partially, or optimized for search.
 
 # Demos
 

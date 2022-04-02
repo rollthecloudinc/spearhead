@@ -9,4 +9,14 @@ Realize environmentally friendly 0 server, 0 trust, 0 cost user-friendly, modern
 Clone repo to host machine.
 
 ```bash
+git clone git@github.com:ng-druid/spearhead.git myproject
+```
+
+## Install Modules
+
+Install node modules.
+
+```
+cd myproject
+npm install
 ```

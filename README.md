@@ -88,7 +88,7 @@ Users are stored in aws cognito. OAuth is used to authenticate and authorize res
 
 ## s3
 
-Entities that would otherwise be stored in relational databaase tables are instead saved as json objects in aws s3.
+Entities that would otherwise be stored in relational databaase tables are instead saved as json objects in aws s3. Media uploads like images, videos, audo, pdfs, etc. are also stored on s3.
 
 ## Open Search
 

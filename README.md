@@ -16,11 +16,10 @@ Realize environmentally friendly 0 server, 0 trust, 0 cost user-friendly, modern
 
 # Features
 
-## Micro front-end orchestration
+* Micro front-end orchestration
+* Codeless page building
 
-## Codeless page building
-
-### Snippets
+## Snippets
 
 Create html and markdown pages.
 

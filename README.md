@@ -16,8 +16,29 @@ Realize environmentally friendly 0 server, 0 trust, 0 cost user-friendly, modern
 
 # Features
 
-* Micro front-end orchestration
-* Codeless page building
+## Micro front-end orchestration
+
+## Codeless page building
+
+### Snippets
+
+Create html and markdown pages.
+
+## Datasources
+
+Query REST APIs and display data.
+
+## Forms
+
+Build forms.
+
+## Orchestrate
+
+Embed external applications.
+
+## Extend
+
+Extend capabilities using outside apps.
 
 # Installation
 

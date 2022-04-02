@@ -20,3 +20,11 @@ Install node modules.
 cd myproject
 npm install
 ```
+
+## Serve
+
+Serve on localhost.
+
+```bash
+ng serve
+```

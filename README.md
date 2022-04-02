@@ -94,6 +94,10 @@ Entities that would otherwise be stored in relational databaase tables are inste
 
 Entities are copied to open search either fully, partially, or optimized for search.
 
+# Publishing
+
+Sites can be published to the web as a static site using Angular pre-rendering. Once pages are pre-rendered they can hosted on any host that supports static sites like github, aws, gitlab, etc. The recommended host is a CDN like aws s3. In future tools to easily deploy sites to vendors like aws s3 will be made available.
+
 # Demos
 
 Build forms and collect data.

@@ -1,1 +1,1 @@
-Primary in place editor with full module federation capabilities including loading remote extensions.
+This is the druid skeleton application.

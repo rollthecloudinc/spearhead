@@ -73,3 +73,33 @@ ng serve
 Visit the page editor inside the browser.
 
 * http://localhost:4000/pages/create-panel-page
+
+# Demos
+
+## Collect
+
+Build forms and collect data.
+
+* https://ng-druid.github.io/native_forms_rebuild_v1/89087abb-326d-4a93-888e-9c597ba81b8e
+* https://ng-druid.github.io/native_forms_rebuild_v1/89087abb-326d-4a93-888e-9c597ba81b8e/manage
+
+## Consume
+
+Consume REST APIs and display data.
+
+* https://ng-druid.github.io/dev-test-virtual-list-flex-v1/character/1011334
+* https://ng-druid.github.io/dev-test-virtual-list-flex-v1/character/1011334/manage
+
+## Orchestrate
+
+Embed external applications.
+
+* https://ng-druid.github.io/workflow-designer-v2
+* https://ng-druid.github.io/workflow-designer-v2/manage
+
+## Extend
+
+Extend system at runtime using external applications.
+
+* https://ng-druid.github.io/tractorbeam-test-v3
+* https://ng-druid.github.io/tractorbeam-test-v3/manage

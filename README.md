@@ -11,7 +11,7 @@ Realize environmentally friendly 0 server, 0 trust, 0 cost user-friendly, modern
 * low latency
 * user-friendly
 * extensible
-* response
+* responsive
 * customizable
 
 # Features

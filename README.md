@@ -76,9 +76,17 @@ Visit the page editor inside the browser.
 
 * http://localhost:4000/pages/create-panel-page
 
-# Demos
+>> The network tab can be used to see pages post but fail to save. Saving pages requires setting up aws respurces.
 
-## Collect
+# Minimal AWS Setup
+
+## Cognito
+
+## s3
+
+## Open Search
+
+# Demos
 
 Build forms and collect data.
 

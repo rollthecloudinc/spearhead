@@ -80,6 +80,8 @@ Visit the page editor inside the browser.
 
 # Minimal AWS Setup
 
+Druid does not use a traditional database. Instead AWS cloud services are used to authenticate users, store and search data.
+
 ## Cognito
 
 ## s3

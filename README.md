@@ -28,3 +28,9 @@ Serve on localhost.
 ```bash
 ng serve
 ```
+
+## Visit
+
+Visit the page editor inside the browser.
+
+* http://localhost:4000/pages/create-panel-page

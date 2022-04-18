@@ -68,6 +68,7 @@ import { TractorbeamModule } from '@ng-druid/tractorbeam';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { RefineryModule } from '@ng-druid/refinery';
 import { SheathModule } from '@ng-druid/sheath';
+import { ReactModule } from '@ng-druid/react';
 // import { PanelpageModule } from 'panelpage';
 
 // import { FlexLayoutServerModule } from '@angular/flex-layout/server';
@@ -201,7 +202,8 @@ export function markedOptionsFactory(): MarkedOptions {
     TractorbeamModule,
     RefineryModule,
     SheathModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    ReactModule
     // JsonschemaModule
     // OktaAuthModule
   ],

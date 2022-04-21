@@ -26,7 +26,7 @@ const signingKeys = {
 
 export const environment = {
   production: false,
-  site: 'ipe',
+  site: 'card.rollthecloud.com',
   apiGatewaySettings: {
     endpointUrl: 'https://9iac3wy8ej.execute-api.us-east-1.amazonaws.com',
   },

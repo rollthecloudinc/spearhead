@@ -69,6 +69,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { RefineryModule } from '@rollthecloudinc/refinery';
 import { SheathModule } from '@rollthecloudinc/sheath';
 import { ReactModule } from '@rollthecloudinc/react';
+import { PAGES_SETTINGS, PagesSettings, PagesModule } from '@rollthecloudinc/pages';
 // import { PanelpageModule } from 'panelpage';
 
 // import { FlexLayoutServerModule } from '@angular/flex-layout/server';
@@ -203,7 +204,8 @@ export function markedOptionsFactory(): MarkedOptions {
     RefineryModule,
     SheathModule,
     NgxDropzoneModule,
-    ReactModule
+    ReactModule,
+    PagesModule
     // JsonschemaModule
     // OktaAuthModule
   ],
@@ -220,6 +222,7 @@ export function markedOptionsFactory(): MarkedOptions {
     { provide: MEDIA_SETTINGS, useValue: new MediaSettings(environment.mediaSettings) },
     { provide: PANELS_SETTINGS, useValue: new PanelsSettings(environment.panelsSettings) },
     { provide: ALIENALIAS_SETTINGS, useValue: new AlienaliasSettings(environment.alienaliasSettings) },
+    { provide: PAGES_SETTINGS, useValue: new PagesSettings({ disableRouting: true }) },
 
     { provide: COGNITO_SETTINGS, useValue: new CognitoSettings(environment.cognitoSettings) },
     // { provide: LOGGING_SETTINGS, useValue: new LoggingSettings(environment.loggingSettings) },

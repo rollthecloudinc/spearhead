@@ -46,11 +46,11 @@ module.exports = {
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
-          "@ng-druid/utils": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@ng-druid/attributes": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@ng-druid/plugin": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@ng-druid/material": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@ng-druid/content": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+          "@rollthecloudinc/utils": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+          "@rollthecloudinc/attributes": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+          "@rollthecloudinc/plugin": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+          "@rollthecloudinc/material": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+          "@rollthecloudinc/content": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
 
           ...sharedMappings.getDescriptors()
         })

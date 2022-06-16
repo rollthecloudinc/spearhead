@@ -27,7 +27,7 @@ const signingKeys = {
 
 export const environment = {
   production: false,
-  site: 'card.rollthecloud.com',
+  site: 'spearhead',
   apiGatewaySettings: {
     // endpointUrl: 'https://localhost:44340',
     endpointUrl: "https://80ry0dd5s4.execute-api.us-east-1.amazonaws.com"
@@ -72,6 +72,12 @@ export const environment = {
   },
   alienaliasSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq'
+  },
+  rumSettings: {
+    appId: '',
+    guestRoleArn: '',
+    identityPoolId: '',
+    region: ''
   },
   /*clientSettings: {
     authority: 'https://localhost:44392',

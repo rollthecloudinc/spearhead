@@ -25,8 +25,8 @@ const signingKeys = {
 };
 
 export const environment = {
-  production: false,
-  site: 'card.rollthecloud.com',
+  production: true,
+  site: 'spearhead',
   apiGatewaySettings: {
     endpointUrl: 'https://9iac3wy8ej.execute-api.us-east-1.amazonaws.com',
   },
@@ -68,6 +68,12 @@ export const environment = {
   },
   alienaliasSettings: {
     openSearchDomain: 'search-classifieds-ui-prod-o5unofrr3c4qb3ykfrxebh2e4a'
+  },
+  rumSettings: {
+    appId: '',
+    guestRoleArn: '',
+    identityPoolId: '',
+    region: ''
   },
   clientSettings: {
     authority: 'https://classifieds-ui-prod.auth.us-east-1.amazoncognito.com',

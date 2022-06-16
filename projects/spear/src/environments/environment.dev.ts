@@ -27,7 +27,7 @@ const signingKeys = {
 
 export const environment = {
   production: false,
-  site: 'card.rollthecloud.com',
+  site: 'spearhead',
   apiGatewaySettings: {
     // endpointUrl: 'https://localhost:44340',
     endpointUrl: "https://80ry0dd5s4.execute-api.us-east-1.amazonaws.com"
@@ -84,6 +84,12 @@ export const environment = {
     loadUserInfo: true,
     automaticSilentRenew: true
   }*/
+  rumSettings: {
+    appId: '',
+    guestRoleArn: '',
+    identityPoolId: '',
+    region: ''
+  },
   clientSettings: {
     authority: 'https://classifieds-ui-dev.auth.us-east-1.amazoncognito.com',
     client_id: '3lkidn79q4jq8nahkecsguleij',

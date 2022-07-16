@@ -68,10 +68,11 @@ import { TractorbeamModule } from '@rollthecloudinc/tractorbeam';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { RefineryModule } from '@rollthecloudinc/refinery';
 import { SheathModule } from '@rollthecloudinc/sheath';
+import { ReactModule } from '@rollthecloudinc/react';
 // import { PanelpageModule } from 'panelpage';
 import { CloudwatchRumSettings, CLOUDWATCH_RUM_SETTINGS, initializeRumMonitorFactory } from '@rollthecloudinc/awrum';
 import { panelpages } from '../environments/panelpages';
-import { createEditMatcher, createMatcher, EditPanelPageComponent, PagesModule, PanelPageRouterComponent } from '@rollthecloudinc/pages';
+import { createEditMatcher, createMatcher, EditPanelPageComponent, PagesModule, PanelPageRouterComponent, PAGES_SETTINGS, PagesSettings } from '@rollthecloudinc/pages';
 import { panelpages as panelpages2 } from '../data/panelpages';
 
 // import { FlexLayoutServerModule } from '@angular/flex-layout/server';
@@ -207,6 +208,7 @@ export function markedOptionsFactory(): MarkedOptions {
     RefineryModule,
     SheathModule,
     NgxDropzoneModule,
+    ReactModule,
     PagesModule
     // JsonschemaModule
     // OktaAuthModule
@@ -224,6 +226,7 @@ export function markedOptionsFactory(): MarkedOptions {
     { provide: MEDIA_SETTINGS, useValue: new MediaSettings(environment.mediaSettings) },
     { provide: PANELS_SETTINGS, useValue: new PanelsSettings(environment.panelsSettings) },
     { provide: ALIENALIAS_SETTINGS, useValue: new AlienaliasSettings(environment.alienaliasSettings) },
+    { provide: PAGES_SETTINGS, useValue: new PagesSettings({ disableRouting: true }) },
 
     { provide: COGNITO_SETTINGS, useValue: new CognitoSettings(environment.cognitoSettings) },
     { provide: CLOUDWATCH_RUM_SETTINGS, useValue: new CloudwatchRumSettings(environment.rumSettings) },

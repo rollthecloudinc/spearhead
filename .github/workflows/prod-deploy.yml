@@ -1,0 +1,20 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  build:
+    uses: rollthecloudinc/druid/.github/workflows/druid-workflow.yml@master
+    with:
+      ENVIRONMENT: prod
+    secrets:
+      RTC_GITHUB_REGISTRY: ${{ secrets.RTC_GITHUB_REGISTRY }}
+      ENVIRONMENT_NAME: ${{ secrets.ENVIRONMENT_NAME }}
+      SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      DESTINATION_REPO: ${{ secrets.DESTINATION_REPO }}
+      TARGET_BRANCH: ${{ secrets.TARGET_BRANCH }}
+      OBJECTS_REPO: ${{ secrets.OBJECTS_REPO }}

@@ -30,7 +30,7 @@ export const environment = {
   site: 'spearhead',
   apiGatewaySettings: {
     // endpointUrl: 'https://localhost:44340',
-    endpointUrl: "https://80ry0dd5s4.execute-api.us-east-1.amazonaws.com"
+    endpointUrl: "https://81j44yaaab.execute-api.us-east-1.amazonaws.com/spearhead"
   },
   mediaSettings: {
     endpointUrl: 'https://80ry0dd5s4.execute-api.us-east-1.amazonaws.com/media',
@@ -66,7 +66,8 @@ export const environment = {
   },
   panelsSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq',
-    s3Bucket: 'classifieds-ui-dev'
+    s3Bucket: 'classifieds-ui-dev',
+    objectsRootUrl: 'https://rollthecloudinc.github.io/spearhead-objects'
   },
   alienaliasSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq'

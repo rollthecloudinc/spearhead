@@ -30,7 +30,7 @@ export const environment = {
   site: 'spearhead',
   apiGatewaySettings: {
     // endpointUrl: 'https://localhost:44340',
-    endpointUrl: "https://80ry0dd5s4.execute-api.us-east-1.amazonaws.com"
+    endpointUrl: "https://81j44yaaab.execute-api.us-east-1.amazonaws.com/spearhead"
   },
   mediaSettings: {
     endpointUrl: 'https://80ry0dd5s4.execute-api.us-east-1.amazonaws.com/media',
@@ -68,7 +68,8 @@ export const environment = {
   },
   panelsSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq',
-    s3Bucket: 'classifieds-ui-dev'
+    s3Bucket: 'classifieds-ui-dev',
+    objectsRootUrl: 'https://rollthecloudinc.github.io/spearhead-objects'
   },
   alienaliasSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq'
@@ -94,10 +95,10 @@ export const environment = {
     authority: 'https://classifieds-ui-dev.auth.us-east-1.amazoncognito.com',
     client_id: '3lkidn79q4jq8nahkecsguleij',
     // redirect_uri: 'https://dfrmx7er5ggc0.cloudfront.net/auth-callback',
-    redirect_uri: 'http://localhost:4000/auth-callback',
+    redirect_uri: 'https://spearhead.druidcloud.dev/auth-callback',
     // redirect_uri: 'https://e4cq5a4vfc.execute-api.us-east-1.amazonaws.com/auth-callback',
     // silent_redirect_uri: 'https://dfrmx7er5ggc0.cloudfront.net/silent-refresh.html',
-    silent_redirect_uri: 'http://localhost:4000/silent-refresh.html',
+    silent_redirect_uri: 'https://spearhead.druidcloud.dev/silent-refresh.html',
     // silent_redirect_uri: 'https://e4cq5a4vfc.execute-api.us-east-1.amazonaws.com/silent-refresh.html',
     response_type: "code",
     scope:"openid profile aws.cognito.signin.user.admin ads_api/ads_api taxonomy_api/taxonomy_api chat/chat media_api/media_api profiles_api/profiles_api", /*'ads_api media_api chat IdentityServerApi taxonomy_api api_gateway",*/

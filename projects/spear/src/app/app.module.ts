@@ -1,5 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler, APP_INITIALIZER,  SecurityContext } from '@angular/core';
+import { NgModule, ErrorHandler, APP_INITIALIZER,  SecurityContext, NgZone, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,12 +22,12 @@ import { ContextModule } from '@rollthecloudinc/context';
 import { ContentModule } from '@rollthecloudinc/content';
 import { AliasModule, CatchAllGuard, CatchAllRouterComponent } from '@rollthecloudinc/alias';
 import { PagealiasModule } from '@rollthecloudinc/pagealias';
-import { PanelsModule, PanelsSettings, PANELS_SETTINGS } from '@rollthecloudinc/panels';
+import { PanelPage, PanelsModule, PanelsSettings, PANELS_SETTINGS } from '@rollthecloudinc/panels';
 import { FormlyModule } from '@rollthecloudinc/formly';
 import { BridgeModule } from '@rollthecloudinc/bridge';
 import { StateModule } from '@rollthecloudinc/state';
 import { AwcogModule, CognitoSettings, COGNITO_SETTINGS } from '@rollthecloudinc/awcog';
-import { KeyvalModule } from '@rollthecloudinc/keyval';
+import { initializeIdbDataFactory, KeyvalModule } from '@rollthecloudinc/keyval';
 // import { CHAT_SETTINGS, ChatSettings } from '@classifieds-ui/chat';
 // tslint:disable-next-line:nx-enforce-module-boundaries
 // import { PROFILE_SETTINGS, ProfileSettings } from '@classifieds-ui/profiles';
@@ -70,6 +70,10 @@ import { RefineryModule } from '@rollthecloudinc/refinery';
 import { SheathModule } from '@rollthecloudinc/sheath';
 import { ReactModule } from '@rollthecloudinc/react';
 // import { PanelpageModule } from 'panelpage';
+import { CloudwatchRumSettings, CLOUDWATCH_RUM_SETTINGS, initializeRumMonitorFactory } from '@rollthecloudinc/awrum';
+import { panelpages } from '../environments/panelpages';
+import { createEditMatcher, createMatcher, EditPanelPageComponent, PagesModule, PanelPageRouterComponent, PAGES_SETTINGS, PagesSettings } from '@rollthecloudinc/pages';
+import { panelpages as panelpages2 } from '../data/panelpages';
 
 // import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 // import { MonacoEditorModule } from 'ngx-monaco-editor';
@@ -95,8 +99,10 @@ const routes = [
   } },*/
   // { path: '', children: [] /*, component: HomeComponent*/ },
   //{ path: '**', component: NotFoundComponent }
-  { path: '**', component: CatchAllRouterComponent, canActivate: [ CatchAllGuard ] }
+  // { path: '**', component: CatchAllRouterComponent, canActivate: [ CatchAllGuard ] }
   //{ path: '', redirectTo: 'pages', pathMatch: "full" }
+  ...panelpages.map(([id, path]) =>  ({ matcher: createEditMatcher(new PanelPage({ id, layoutType: '', displayType: '', gridItems: [], panels: [], layoutSetting: undefined, rowSettings: [], path })), component: EditPanelPageComponent, data: { panelPageListItem: new PanelPage({ id, layoutType: '', displayType: '', gridItems: [], panels: [], layoutSetting: undefined, rowSettings: [], path }) } })),
+  ...panelpages.map(([id, path]) =>  ({ matcher: createMatcher(new PanelPage({ id, layoutType: '', displayType: '', gridItems: [], panels: [], layoutSetting: undefined, rowSettings: [], path })), component: PanelPageRouterComponent, data: { panelPageListItem: new PanelPage({ id, layoutType: '', displayType: '', gridItems: [], panels: [], layoutSetting: undefined, rowSettings: [], path }) } }))
 ];
 
 // @todo: just get this to work for now deal with actual endpoints later.
@@ -152,10 +158,10 @@ export function markedOptionsFactory(): MarkedOptions {
     }),
     // NbA11yModule.forRoot(),
     RouterModule.forRoot(routes, { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' }),
-    StoreDevtoolsModule.instrument({
+    !environment.production ? StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    }),
+    }) : [],
     StoreRouterConnectingModule.forRoot({
       serializer: MinimalRouterStateSerializer
     }),
@@ -170,7 +176,6 @@ export function markedOptionsFactory(): MarkedOptions {
       }
     ),
     EffectsModule.forRoot([]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
     BridgeModule,
     StateModule,
     MaterialModule,
@@ -189,7 +194,7 @@ export function markedOptionsFactory(): MarkedOptions {
     PanelsModule,
     // PanelpageModule,
     RenderModule,
-    PagealiasModule,
+    //PagealiasModule,
     FormlyModule,
     TransformModule,
     AwcogModule,
@@ -203,7 +208,8 @@ export function markedOptionsFactory(): MarkedOptions {
     RefineryModule,
     SheathModule,
     NgxDropzoneModule,
-    ReactModule
+    ReactModule,
+    PagesModule
     // JsonschemaModule
     // OktaAuthModule
   ],
@@ -220,8 +226,10 @@ export function markedOptionsFactory(): MarkedOptions {
     { provide: MEDIA_SETTINGS, useValue: new MediaSettings(environment.mediaSettings) },
     { provide: PANELS_SETTINGS, useValue: new PanelsSettings(environment.panelsSettings) },
     { provide: ALIENALIAS_SETTINGS, useValue: new AlienaliasSettings(environment.alienaliasSettings) },
+    { provide: PAGES_SETTINGS, useValue: new PagesSettings({ disableRouting: true }) },
 
     { provide: COGNITO_SETTINGS, useValue: new CognitoSettings(environment.cognitoSettings) },
+    { provide: CLOUDWATCH_RUM_SETTINGS, useValue: new CloudwatchRumSettings(environment.rumSettings) },
     // { provide: LOGGING_SETTINGS, useValue: new LoggingSettings(environment.loggingSettings) },
     // { provide: AD_SETTINGS, useValue: new AdSettings(environment.adSettings) },
     // { provide: TAXONOMY_SETTINGS, useValue: new TaxonomySettings(environment.taxonomySettings) },
@@ -235,6 +243,9 @@ export function markedOptionsFactory(): MarkedOptions {
     { provide: HTTP_INTERCEPTORS, useClass: LogoutInterceptor, multi: true },
 
     { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
+
+    // { provide: APP_INITIALIZER, useFactory: initializeRumMonitorFactory, multi: true, deps: [ CLOUDWATCH_RUM_SETTINGS, NgZone ] },
+    { provide: APP_INITIALIZER, useFactory: initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }), multi: true, deps: [ PLATFORM_ID ] },
 
         /* These are required only for pre-rendering - quick hack to make work for now */
     //{ provide: APP_BASE_HREF, useValue: 'http://localhost:4000/' },

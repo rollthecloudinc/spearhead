@@ -54,6 +54,7 @@
     "@rollthecloudinc/crud": "0.0.61",
     "@rollthecloudinc/datasource": "0.0.61",
     "@rollthecloudinc/deity": "0.0.61",
+    "@rollthecloudinc/detour": "0.0.61",
     "@rollthecloudinc/dparam": "0.0.61",
     "@rollthecloudinc/durl": "0.0.61",
     "@rollthecloudinc/formly": "0.0.61",

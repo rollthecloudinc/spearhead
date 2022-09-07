@@ -54,6 +54,7 @@ import { CloudwatchRumSettings, CLOUDWATCH_RUM_SETTINGS } from '@rollthecloudinc
 import { panelpages } from '../environments/panelpages';
 import { createEditMatcher, createMatcher, EditPanelPageComponent, PagesModule, PanelPageRouterComponent, PAGES_SETTINGS, PagesSettings } from '@rollthecloudinc/pages';
 import { panelpages as panelpages2 } from '../data/panelpages';
+import { OrdainModule } from '@rollthecloudinc/ordain';
 
 // import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 // import { MonacoEditorModule } from 'ngx-monaco-editor';
@@ -158,7 +159,8 @@ export function markedOptionsFactory(): MarkedOptions {
     SheathModule,
     NgxDropzoneModule,
     ReactModule,
-    PagesModule
+    PagesModule,
+    OrdainModule
   ],
   providers: [
     CatchAllGuard,

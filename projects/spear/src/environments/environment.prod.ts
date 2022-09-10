@@ -77,14 +77,10 @@ export const environment = {
     region: ''
   },
   clientSettings: {
-    authority: 'https://classifieds-ui-prod.auth.us-east-1.amazoncognito.com',
+    authority: 'https://sso.druidcloud.io',
     client_id: '37lke0kuqac07fs1mk9mp2h471',
     redirect_uri: 'https://spearhead.druidcloud.io/auth-callback',
-    // redirect_uri: 'https://uhf0kayrs4.execute-api.us-east-1.amazonaws.com/auth-callback',
-    //redirect_uri: 'https://demo.ng-druid.com/auth-callback',
     silent_redirect_uri: 'https://spearhead.druidcloud.io/silent-refresh.html',
-    // silent_redirect_uri: 'https://uhf0kayrs4.execute-api.us-east-1.amazonaws.com/silent-refresh.html',
-    // silent_redirect_uri: 'https://demo.ng-druid.com/silent-refresh.html',
     response_type: "code",
     scope:"openid profile aws.cognito.signin.user.admin ads_api/ads_api taxonomy_api/taxonomy_api chat/chat media_api/media_api profiles_api/profiles_api", /*'ads_api media_api chat IdentityServerApi taxonomy_api api_gateway",*/
     filterProtocolClaims: true,
@@ -94,11 +90,11 @@ export const environment = {
     userStore: undefined,
     metadata: {
       issuer: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_ObsPF5JdM",
-      authorization_endpoint: "https://classifieds-ui-prod.auth.us-east-1.amazoncognito.com/oauth2/authorize",
-      userinfo_endpoint: "https://classifieds-ui-prod.auth.us-east-1.amazoncognito.com/oauth2/userInfo",
-      end_session_endpoint: "https://classifieds-ui-prod.auth.us-east-1.amazoncognito.com/logout",
-      token_endpoint: "https://classifieds-ui-prod.auth.us-east-1.amazoncognito.com/oauth2/token",
-      jwks_uri: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_ObsPF5JdM"
+      authorization_endpoint: "https://sso.druidcloud.io/oauth2/authorize",
+      userinfo_endpoint: "https://sso.druidcloud.io/oauth2/userInfo",
+      end_session_endpoint: "https://sso.druidcloud.io/logout",
+      token_endpoint: "https://sso.druidcloud.io/oauth2/token",
+      jwks_uri: "https://sso.druidcloud.io/us-east-1_z8PhK3D8V"
     },
     signingKeys: signingKeys.keys
   }

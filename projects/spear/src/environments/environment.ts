@@ -30,7 +30,7 @@ export const environment = {
   site: 'spearhead',
   apiGatewaySettings: {
     // endpointUrl: 'https://localhost:44340',
-    endpointUrl: "https://vertigo.druidcloud.dev/spearhead"
+    endpointUrl: "https://vertigo.druidcloud.dev/rollthecloudinc/spearhead-objects/shapeshifter"
   },
   mediaSettings: {
     endpointUrl: 'https://vertigo.druidcloud.dev/spearhead/media',
@@ -67,7 +67,7 @@ export const environment = {
   panelsSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq',
     s3Bucket: 'classifieds-ui-dev',
-    objectsRootUrl: 'https://rollthecloudinc.github.io/spearhead-objects'
+    objectsRootUrl: 'https://rollthecloudinc.github.io/vertigoapp-objects'
   },
   alienaliasSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq'

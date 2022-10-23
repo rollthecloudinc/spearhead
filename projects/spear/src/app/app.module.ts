@@ -55,6 +55,8 @@ import { panelpages } from '../environments/panelpages';
 import { createEditMatcher, createMatcher, EditPanelPageComponent, PagesModule, PanelPageRouterComponent, PAGES_SETTINGS, PagesSettings } from '@rollthecloudinc/pages';
 import { panelpages as panelpages2 } from '../data/panelpages';
 import { OrdainModule } from '@rollthecloudinc/ordain';
+import { DparamModule } from '@rollthecloudinc/dparam';
+import { DetourModule } from '@rollthecloudinc/detour';
 
 // import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 // import { MonacoEditorModule } from 'ngx-monaco-editor';
@@ -160,7 +162,9 @@ export function markedOptionsFactory(): MarkedOptions {
     NgxDropzoneModule,
     ReactModule,
     PagesModule,
-    OrdainModule
+    OrdainModule,
+    DparamModule,
+    DetourModule
   ],
   providers: [
     CatchAllGuard,

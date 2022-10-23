@@ -28,13 +28,13 @@ export const environment = {
   production: true,
   site: 'spearhead',
   apiGatewaySettings: {
-    endpointUrl: 'https://9iac3wy8ej.execute-api.us-east-1.amazonaws.com/spearhead',
+    endpointUrl: 'https://edge.hedge.earth/emissionless/rollthecloudinc/spearhead-objects-prod/shapeshifter',
   },
   mediaSettings: {
-    endpointUrl: 'https://9iac3wy8ej.execute-api.us-east-1.amazonaws.com/media',
+    endpointUrl: 'https://edge.hedge.earth/emissionless/media',
     cloudinaryUrl: 'https://api.cloudinary.com/v1_1/dj4vvkgzw',
     uploadPreset: 'i0hm4opm',
-    imageUrl: '@todo',
+    imageUrl: 'https://edge.hedge.earth/emissionless/spearhead',
     bucket: 'classifieds-ui-prod',
     prefix: 'media/'
   },

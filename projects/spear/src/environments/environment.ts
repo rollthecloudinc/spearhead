@@ -30,7 +30,7 @@ export const environment = {
   site: 'spearhead',
   apiGatewaySettings: {
     // endpointUrl: 'https://localhost:44340',
-    endpointUrl: "https://vertigo.druidcloud.dev/spearhead"
+    endpointUrl: "https://vertigo.druidcloud.dev/rollthecloudinc/spearhead-objects/shapeshifter"
   },
   mediaSettings: {
     endpointUrl: 'https://vertigo.druidcloud.dev/spearhead/media',

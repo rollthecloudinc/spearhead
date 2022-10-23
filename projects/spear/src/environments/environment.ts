@@ -67,7 +67,7 @@ export const environment = {
   panelsSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq',
     s3Bucket: 'classifieds-ui-dev',
-    objectsRootUrl: 'https://rollthecloudinc.github.io/vertigoapp-objects'
+    objectsRootUrl: 'https://rollthecloudinc.github.io/spearhead-objects'
   },
   alienaliasSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq'

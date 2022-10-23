@@ -34,7 +34,7 @@ export const environment = {
     endpointUrl: 'https://edge.hedge.earth/emissionless/media',
     cloudinaryUrl: 'https://api.cloudinary.com/v1_1/dj4vvkgzw',
     uploadPreset: 'i0hm4opm',
-    imageUrl: 'https://edge.hedge.earth/emissionless//spearhead',
+    imageUrl: 'https://edge.hedge.earth/emissionless/spearhead',
     bucket: 'classifieds-ui-prod',
     prefix: 'media/'
   },

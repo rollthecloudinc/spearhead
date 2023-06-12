@@ -24,4 +24,4 @@ https://github.com/rollthecloudinc/spearhead-blog (@todo)
 
 Spearhead distribution for rapid development of product catalog / ecommerce website.
 
-https://github.com/rollthecloudinc/spearhead-commerce
+https://github.com/rollthecloudinc/spearhead-commerce (@todo)

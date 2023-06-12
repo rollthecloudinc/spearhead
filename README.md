@@ -17,3 +17,11 @@ https://github.com/rollthecloudinc/carbonfree/wiki/Automating-Carbonfreed-Websit
 Spearhead distribution for rapid dev of documentation websites.
 
 https://github.com/rollthecloudinc/spearhead-docs
+
+Spearhead distribution for rapid development of blogs.
+
+https://github.com/rollthecloudinc/spearhead-blog (@todo)
+
+Spearhead distribution for rapid development of product catalog / ecommerce website.
+
+https://github.com/rollthecloudinc/spearhead-commerce

@@ -1,4 +1,4 @@
-![spearhead_identity_small](https://user-images.githubusercontent.com/73197190/201539275-3145ca25-f079-4caf-953c-3d4d6630caa4.png)
+![spearhead-logo-new](https://github.com/rollthecloudinc/spearhead/assets/73197190/2de5e0f7-f393-4171-b2e9-c81b88a86713)
 
 # Summary
 

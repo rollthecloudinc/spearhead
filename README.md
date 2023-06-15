@@ -18,13 +18,19 @@ Spearhead distribution for rapid dev of documentation websites.
 
 https://github.com/rollthecloudinc/spearhead-docs
 
+## Blogs
+
 Spearhead distribution for rapid development of blogs.
 
 https://github.com/rollthecloudinc/spearhead-blog (@todo)
 
+## Shop
+
 Spearhead distribution for rapid development of product catalog / ecommerce website.
 
 https://github.com/rollthecloudinc/spearhead-commerce (@todo)
+
+## Charity
 
 Spearhead distribution for rapid development of nonprofit / 501(c)3 charity website.
 

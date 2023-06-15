@@ -1,5 +1,5 @@
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule, ErrorHandler, APP_INITIALIZER,  SecurityContext, NgZone, PLATFORM_ID } from '@angular/core';
+import { BrowserModule, provideClientHydration /*, BrowserTransferStateModule */ } from '@angular/platform-browser';
+import { NgModule, APP_INITIALIZER,  SecurityContext, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +13,7 @@ import { AuthModule, LogoutInterceptor} from '@rollthecloudinc/auth';
 import { OidcModule, TokenInterceptor, CLIENT_SETTINGS, ClientSettings } from '@rollthecloudinc/oidc';
 import { MediaModule, MediaSettings, MEDIA_SETTINGS } from '@rollthecloudinc/media';
 import { UtilsModule /*, CorrelationInterceptor */, SITE_NAME, HOST_NAME, PROTOCOL } from '@rollthecloudinc/utils';
-import { MaterialModule } from '@rollthecloudinc/material';
+//import { MaterialModule } from '@rollthecloudinc/material';
 // import { LOGGING_SETTINGS, LoggingSettings, LoggingModule, HttpErrorInterceptor, GlobalErrorHandler } from '@classifieds-ui/logging';
 import { TokenModule } from '@rollthecloudinc/token';
 import { ContextModule } from '@rollthecloudinc/context';
@@ -21,7 +21,7 @@ import { ContentModule } from '@rollthecloudinc/content';
 import { AliasModule, CatchAllGuard, CatchAllRouterComponent } from '@rollthecloudinc/alias';
 import { PagealiasModule } from '@rollthecloudinc/pagealias';
 import { PanelPage, PanelsModule, PanelsSettings, PANELS_SETTINGS } from '@rollthecloudinc/panels';
-import { FormlyModule } from '@rollthecloudinc/formly';
+//import { FormlyModule } from '@rollthecloudinc/formly';
 import { BridgeModule } from '@rollthecloudinc/bridge';
 import { StateModule } from '@rollthecloudinc/state';
 import { AwcogModule, CognitoSettings, COGNITO_SETTINGS } from '@rollthecloudinc/awcog';
@@ -49,7 +49,7 @@ import { TractorbeamModule } from '@rollthecloudinc/tractorbeam';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { RefineryModule } from '@rollthecloudinc/refinery';
 import { SheathModule } from '@rollthecloudinc/sheath';
-import { ReactModule } from '@rollthecloudinc/react';
+// import { ReactModule } from '@rollthecloudinc/react';
 import { CloudwatchRumSettings, CLOUDWATCH_RUM_SETTINGS } from '@rollthecloudinc/awrum';
 import { panelpages } from '../environments/panelpages';
 import { createEditMatcher, createMatcher, EditPanelPageComponent, PagesModule, PanelPageRouterComponent, PAGES_SETTINGS, PagesSettings } from '@rollthecloudinc/pages';
@@ -95,7 +95,7 @@ export function markedOptionsFactory(): MarkedOptions {
     CommonModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    BrowserTransferStateModule ,
+    // BrowserTransferStateModule ,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -110,7 +110,7 @@ export function markedOptionsFactory(): MarkedOptions {
       },
     }),
     // NbA11yModule.forRoot(),
-    RouterModule.forRoot(routes, { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' /*, relativeLinkResolution: 'legacy' */ }),
     !environment.production ? StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
@@ -131,7 +131,7 @@ export function markedOptionsFactory(): MarkedOptions {
     EffectsModule.forRoot([]),
     BridgeModule,
     StateModule,
-    MaterialModule,
+    // MaterialModule,
     UtilsModule,
     // LoggingModule,
     TokenModule,
@@ -147,7 +147,7 @@ export function markedOptionsFactory(): MarkedOptions {
     PanelsModule,
     RenderModule,
     PagealiasModule,
-    FormlyModule,
+    // FormlyModule,
     TransformModule,
     AwcogModule,
     KeyvalModule,
@@ -160,13 +160,14 @@ export function markedOptionsFactory(): MarkedOptions {
     RefineryModule,
     SheathModule,
     NgxDropzoneModule,
-    ReactModule,
+    // ReactModule,
     PagesModule,
     OrdainModule,
     DparamModule,
     DetourModule
   ],
   providers: [
+    provideClientHydration(),
     CatchAllGuard,
     { provide: SITE_NAME, useValue: environment.site },
     { provide: CLIENT_SETTINGS, useValue: new ClientSettings(environment.clientSettings) },

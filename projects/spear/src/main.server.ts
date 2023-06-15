@@ -14,7 +14,7 @@ import { AppServerModule } from './app/app.server.module';
 
 // import 'localstorage-polyfill';
 import * as express from 'express';
-// const { ngExpressEngine, AppServerModule, enableProdMode } = require('../../../dist/ipe/server/main');
+// const { ngExpressEngine, AppServerModule, enableProdMode } = require('../../../dist/spear/server/main');
 import { APP_BASE_HREF } from '@angular/common';
 import { enableProdMode } from '@angular/core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
@@ -32,7 +32,7 @@ const proxy = require('express-http-proxy');
 export function app() {
   enableProdMode();
   const server = express();
-  const distFolder = 'dist/ipe';
+  const distFolder = 'dist/spear';
   const indexHtml = 'index';
 
   server.use(cookieParser());

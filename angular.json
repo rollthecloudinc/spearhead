@@ -16,7 +16,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/spear",
             "index": "projects/spear/src/index.html",
@@ -35,7 +35,7 @@
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": [
-              "node_modules/marked/lib/marked.js",
+              "node_modules/marked/bin/marked.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-json.min.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
@@ -47,7 +47,9 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "extraWebpackConfig": "projects/spear/webpack.config.js",
+            "customWebpackConfig": {
+              "path": "projects/spear/webpack.config.js"
+            },
             "commonChunk": false
           },
           "configurations": {
@@ -67,6 +69,7 @@
               ]
             },
             "prod": {
+              "sourceMap": false,
               "outputHashing": "all",
               "vendorChunk": false,
               "extractLicenses": true,
@@ -74,41 +77,43 @@
               "namedChunks": false,
               "commonChunk": true,
               "optimization": true,
+              "customWebpackConfig": {
+                "path": "projects/spear/webpack.prod.config.js"
+              },
               "fileReplacements": [
                 {
                   "replace": "projects/spear/src/environments/environment.ts",
                   "with": "projects/spear/src/environments/environment.prod.ts"
                 }
-              ],
-              "extraWebpackConfig": "projects/spear/webpack.prod.config.js"
+              ]
             }
           },
           "defaultConfiguration": ""
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "spear:build",
             "port": 4000,
-            "publicHost": "http://localhost:4000",
-            "extraWebpackConfig": "projects/spear/webpack.config.js"
+            "publicHost": "http://localhost:4000"
           },
           "configurations": {
             "prod": {
-              "browserTarget": "spear:build:prod",
-              "extraWebpackConfig": "projects/spear/webpack.prod.config.js"
+              "browserTarget": "spear:build:prod"
             }
           }
         },
         "extract-i18n": {
-          "builder": "ngx-build-plus:extract-i18n",
+          "builder": "@angular-builders/custom-webpack:extract-i18n",
           "options": {
             "browserTarget": "spear:build",
-            "extraWebpackConfig": "projects/spear/webpack.config.js"
+            "customWebpackConfig": {
+              "path": "projects/spear/webpack.config.js"
+            }
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-builders/custom-webpack:karma",
           "options": {
             "main": "projects/spear/src/test.ts",
             "polyfills": "projects/spear/src/polyfills.ts",
@@ -140,7 +145,7 @@
           }
         },
         "server": {
-          "builder": "@angular-devkit/build-angular:server",
+          "builder": "@angular-builders/custom-webpack:server",
           "options": {
             "outputPath": "dist/spear-server",
             "main": "projects/spear/src/main.server.ts",
@@ -151,7 +156,6 @@
           },
           "configurations": {
             "prod": {
-              "bundleDependencies": true,
               "fileReplacements": [
                 {
                   "replace": "projects/spear/src/environments/environment.ts",
@@ -162,7 +166,6 @@
               "optimization": true
             },
             "dev": {
-              "bundleDependencies": true,
               "fileReplacements": [
                 {
                   "replace": "projects/spear/src/environments/environment.ts",

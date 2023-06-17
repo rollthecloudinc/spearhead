@@ -8,7 +8,7 @@ SPeaRhead is a starter kit for quickly building and deploying low energy sustain
 
 ## Dev Tools Inspector Styling
 
-This is very much an alpha feature. However, one that doesn’t exist in any other platform that we have seen. Classes can be added and retained on pages using the the dev tools inspector. This makes it possible to style pages using tail wind css directly in the browser without changing any code. In the future will be extended to work with other attributes as well like styles, data attributes, etc.
+This is very much an alpha feature. However, one that doesn’t exist in any other platform that we have seen. Classes can be added and retained on pages using the the dev tools inspector. This makes it possible to style pages using tail wind css directly in the browser without changing any code. In the future will be extended to work with other attributes as well like styles, data attributes, etc. See the video on Youtube below for a demonstration.
 
 https://www.youtube.com/watch?app=desktop&v=0dP7lS8eUEE
 

@@ -4,7 +4,13 @@
 
 SPeaRhead is a starter kit for quickly building and deploying low energy sustainable websites. SPeaRhead is equipped with [Quell](https://github.com/rollthecloudinc/quell) for rapid creation of low code web experiences also supporting hybrid app creation using multiple JavaScript frameworks. Backed by [HEDGE](https://github.com/rollthecloudinc/hedge) our clean energy energy data store tracking SCI. Built on top of the tried and true ever evolving Angular framework for modern front-end web development and AWS well architected framework sustainability pillar. The complete clean, low energy platform for sustainable web building.
 
-# Noteworthy Features
+# Feature Highlight
+
+## Extensible, Native Micro Front-End Support
+
+Spearhead is native micro frontend orchestration platform. What kubernetes is to docker spearhead is to micro front-ends. Spearhead also taks micro-front ends one step further by using them as plugins that can extend functionality of core without core code changes. A bit more about this can be found on our plugin starter kit. More about this feature and creating plugins can be found on the plugin starter kit repository below.
+
+https://github.com/rollthecloudinc/quell-plugin
 
 ## Dev Tools Inspector Styling
 

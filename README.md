@@ -77,6 +77,12 @@ Outside applications can be natively embedded into pages using web pack 5 module
 
 <img width="1440" alt="Screen Shot 2022-11-26 at 8 56 49 PM" src="https://user-images.githubusercontent.com/73197190/204115805-99ff3750-3a9a-45f5-ae9b-8ae7ece3af2f.png">
 
+## Extensibe Plugin System
+
+Spearhead plugins are completely independent web apps that can be included at runtime into any spearhead web app. Plugins can be added without modifying spearhead web app and/or host application that the plugin will be used. This enables development of plugins that extend spearhead web apps independent of the core web app itself. Plugin authors deploy plugins on CDNs as small, independent web apps that are loaded remotely. Once plugins are published can be included at runtime in the browser when building pages without changing any code or installing new software. For more details about plugins and creating them visit the pluin starter kit project below.
+
+https://github.com/rollthecloudinc/quell-plugin
+
 ## Transparency
 
 Roll the Coud web site front-end carbon emissions are publicly reported using statsy.

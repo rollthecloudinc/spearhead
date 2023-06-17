@@ -8,7 +8,7 @@ SPeaRhead is a starter kit for quickly building and deploying low energy sustain
 
 ## Extensible, Native Micro Front-End Support
 
-Spearhead is native micro frontend orchestration platform. What kubernetes is to docker spearhead is to micro front-ends. Spearhead also taks micro-front ends one step further by using them as plugins that can extend functionality of core without core code changes. A bit more about this can be found on our plugin starter kit. More about this feature and creating plugins can be found on the plugin starter kit repository below.
+Spearhead is native micro frontend orchestration platform. What kubernetes is to docker spearhead is to micro front-ends. Spearhead also takes micro-front ends one step further by using them as plugins that can extend functionality of core without core code changes. A bit more about this can be found on our plugin starter kit. More about this feature and creating plugins can be found on the plugin starter kit repository below.
 
 https://github.com/rollthecloudinc/quell-plugin
 

@@ -4,6 +4,14 @@
 
 SPeaRhead is a starter kit for quickly building and deploying low energy sustainable websites. SPeaRhead is equipped with [Quell](https://github.com/rollthecloudinc/quell) for rapid creation of low code web experiences also supporting hybrid app creation using multiple JavaScript frameworks. Backed by [HEDGE](https://github.com/rollthecloudinc/hedge) our clean energy energy data store tracking SCI. Built on top of the tried and true ever evolving Angular framework for modern front-end web development and AWS well architected framework sustainability pillar. The complete clean, low energy platform for sustainable web building.
 
+# Noteworthy Features
+
+## Dev Tools Inspector Styling
+
+This is very much an alpha feature. However, one that doesn’t exist in any other platform that we have seen. Classes can be added and retained on pages using the the dev tools inspector. This makes it possible to style pages using tail wind css directly in the browser without changing any code. In the future will be extended to work with other attributes as well like styles, data attributes, etc.
+
+https://www.youtube.com/watch?app=desktop&v=0dP7lS8eUEE
+
 # Setup
 
 Manual set-up instructions for new spearhead aka: carbonfree website.

@@ -16,6 +16,7 @@ SPeaRhead is a starter kit for quickly building and deploying low energy sustain
 * Dev Tools Styling
 * Carbon Awareness
 * Application Embedding
+* Extensibe Plugin System
 * Transparency
 * Github Native
 

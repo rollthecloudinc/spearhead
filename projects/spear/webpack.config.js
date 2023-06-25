@@ -45,10 +45,16 @@ module.exports = {
         },*/
 
         shared: share({
+          "@angular/platform-browser": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/platform-browser/animations": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+
+          "@angular/cdk": { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true },
+          "@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true },
 
           "@rollthecloudinc/utils": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
           "@rollthecloudinc/attributes": { singleton: true, strictVersion: false, requiredVersion: 'auto' },

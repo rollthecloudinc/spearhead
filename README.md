@@ -4,6 +4,12 @@
 
 Spearhead is a starter kit for quickly building and deploying low energy climate aware websites. Spearhead is equipped with [Quell](https://github.com/rollthecloudinc/quell) for rapid creation of low code web experiences also supporting hybrid app creation using multiple JavaScript frameworks. Backed by [HEDGE](https://github.com/rollthecloudinc/hedge) our climate aware data store tracking SCI. Built on top of the tried and true ever evolving Angular framework for modern front-end web development and AWS well architected framework sustainability pillar. The complete clean, low energy platform for climate aware web building.
 
+# Local Set-up Instructions
+
+The instructions to set-up Spearhead locally can be found in the below wiki page.
+
+https://github.com/rollthecloudinc/spearhead/wiki/Spearhead-Website-Local-Set-up-Instructions
+
 # Features
 
 * Low Energy

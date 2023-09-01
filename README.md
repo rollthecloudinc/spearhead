@@ -134,8 +134,8 @@ Spearhead distribution for rapid development of nonprofit / 501(c)3 charity webs
 
 https://github.com/rollthecloudinc/spearhead-charity (@todo)
 
-## Bloodhound
+## Vial
 
 Adaptable SCI reporting dashboard.
 
-https://github.com/rollthecloudinc/bloodhound
+https://github.com/rollthecloudinc/vial

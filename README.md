@@ -1,4 +1,4 @@
-![spearhead-new-3](https://github.com/rollthecloudinc/spearhead/assets/73197190/99034202-f450-4529-905c-f3467deaad1d)
+<img width="200" alt="Screen Shot 2024-07-08 at 10 29 48 AM" src="https://github.com/rollthecloudinc/spearhead/assets/73197190/836193c5-2c76-4070-9498-1c2cff47f1c3">
 
 # Summary
 

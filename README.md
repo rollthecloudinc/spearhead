@@ -1,8 +1,14 @@
-![spearhead-new-3](https://github.com/rollthecloudinc/spearhead/assets/73197190/99034202-f450-4529-905c-f3467deaad1d)
+<img width="200" alt="Screen Shot 2024-07-08 at 10 29 48 AM" src="https://github.com/rollthecloudinc/spearhead/assets/73197190/836193c5-2c76-4070-9498-1c2cff47f1c3">
 
 # Summary
 
 Spearhead is a starter kit for quickly building and deploying low energy climate aware websites. Spearhead is equipped with [Quell](https://github.com/rollthecloudinc/quell) for rapid creation of low code web experiences also supporting hybrid app creation using multiple JavaScript frameworks. Backed by [HEDGE](https://github.com/rollthecloudinc/hedge) our climate aware data store tracking SCI. Built on top of the tried and true ever evolving Angular framework for modern front-end web development and AWS well architected framework sustainability pillar. The complete clean, low energy platform for climate aware web building.
+
+# Local Set-up Instructions
+
+The instructions to set-up Spearhead locally can be found in the below wiki page.
+
+https://github.com/rollthecloudinc/spearhead/wiki/Spearhead-Website-Local-Set-up-Instructions
 
 # Features
 
@@ -128,8 +134,8 @@ Spearhead distribution for rapid development of nonprofit / 501(c)3 charity webs
 
 https://github.com/rollthecloudinc/spearhead-charity (@todo)
 
-## Bloodhound
+## Vial
 
 Adaptable SCI reporting dashboard.
 
-https://github.com/rollthecloudinc/bloodhound
+https://github.com/rollthecloudinc/vial

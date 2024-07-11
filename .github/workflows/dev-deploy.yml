@@ -18,3 +18,4 @@ jobs:
       DESTINATION_REPO: ${{ secrets.DESTINATION_REPO }}
       TARGET_BRANCH: ${{ secrets.TARGET_BRANCH }}
       OBJECTS_REPO: ${{ secrets.OBJECTS_REPO }}
+      ENABLE_GZIP: ${{ secrets.ENABLE_GZIP }}

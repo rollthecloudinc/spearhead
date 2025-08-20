@@ -8,7 +8,7 @@ permissions:
   contents: read
 jobs:
   build:
-    uses: rollthecloudinc/druid/.github/workflows/azure-workflow.yml@master
+    uses: rollthecloudinc/quell/.github/workflows/azure-workflow.yml@master
     with:
       ENVIRONMENT: dev
     secrets:

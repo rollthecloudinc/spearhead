@@ -4,39 +4,20 @@
 // import { GlobalErrorHandler } from '@classifieds-ui/logging';
 
 // https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html
-const signingKeys = {
-  "keys": [
-  {
-  "alg": "RS256",
-  "e": "AQAB",
-  "kid": "LFfHKQ51C81E+ByYd/wucwrvfiEnYJQtJvb4GHbalFQ=",
-  "kty": "RSA",
-  "n": "gijyjUXIzkAPofeaM7JCAsuLHLc_GP3of-NT8ARjSTTMif-wqJeNww4MJkvRYzfL6mL_owVZgD37O4Dd81jBLY6iEyi6hxHYTUuXR7mYkQ2008Fp3m45wztUKWeeNgzsvuR01STkkwmuf7afkQXJUlHts8eT47Dqc4mrKA3vcHYG4vJXmvtjQT-IirkA-yU36TXyd1TPOetdwlmFOcSYfL4CW7ZZfVg1dCvT1T50mO1AaQDMcA8S3fVfROGW36hjiB8r9q5zQrrfBLTMPSVpn85LscVLbYUxJL9yLygiD4UTCXw7Y1hiE2tDL2nmy6PHumylNf8yj5I7N56Kz4cwtQ",
-  "use": "sig"
-  },
-  {
-  "alg": "RS256",
-  "e": "AQAB",
-  "kid": "UNTk4hVhUrq0k8uAGvDYs/w0g/iW+b9PweObMbM6S/w=",
-  "kty": "RSA",
-  "n": "g7Z-JKiovH7ZnwK1o8hsiLf4GfxA9w11RsQK3yQWG3xR__qKbkvxKxhn3Xt5QsUSo8nhiwWtsjUTyVxRO7WJlCjSHGztvYhoYIlwSL8Mqtf3Plg6CrJoDhq7CZDe_TNeQczfBI8k1w5U6n4h5G-e4Fa41nH-qXrDh2L7onTFKSzZDJRCELmh64ur5RmU6kuhwrejwS4YXuz4gKQRcTuDu9AXH7A7cNO5EF_sVRy8hkFtKCPO-mgwJ5S_e5_Y5gleJRpMZnzWmBv_-GpwO5V9XzxBr5s1O9HqyBMXR1pKU_YykeP7PvukEDpyr8UXu-2drzq-oHzXHDInNHjYPLx3BQ",
-  "use": "sig"
-  }
-  ]
-};
+const signingKeys = {"keys":[{"alg":"RS256","e":"AQAB","kid":"AVAUnZnRHZ8veNowR0ULe3nfieaPTVZjW6NExDWSL6w=","kty":"RSA","n":"uZSXpyh0F9VvD4-C_yV5_to_EbAETXYgARdA0iGcaQ9TYjt1T3VANDCfl2vQpWw4vo41a_R76hbIIPhyqAJHszGnz7eBa-2-8uHL46AOcw7Gwqg41jq-Bmd-GWH_ORoPmnraj3SUzY1JtczajD4iIiYdgNh-VL50qaaJX-vHu6nJlAjSqL4bG9BZa6teFI5lZctqqHP3iDwuXmq_2g1pHlslnLd3xG5LN7UOCDoGcW9BlU5NyhPV-A36eRC6N0ojLPjkQlunNKON3Q9DEHKqKIVXoLBBTHkPRwWfpXy2x539qJhaEHhedG07y7JLRHbooIL8x4QhnTec1B058ul6rw","use":"sig"},{"alg":"RS256","e":"AQAB","kid":"xohxFggNLGhhDsMbcn60ZimMxOSpKGVAxuobUx6V6QQ=","kty":"RSA","n":"vozfe7EyR0LXiawHaCtW6SnX77KpVfyXz3DHEZGZVBt5FiFMD1pOdQ4BG17Ap05tYTIns09TrFTnULYrqjcjO0mxoYNgFQu6dgBkwGfoEzZdh8PL4bHEwrQAUfwgV6i2po1zateyhPuDWVi_8UBsy0E7UEez9velmh8L9dPUbMhzyewXXTG2tm0DbgR5ZXXpyM8WbGZjHnGIF_Zv6dnwfsTbM-dQmPH6The5UAVCt1xA0N4ZWGzSN1Rl1GIRLURVPjSXqiJt4er7qsngRkOOE083RuYb5Ge8sY_TzaKmr0UN6q_2GOhYCUkKT7Cd4mg6kv0tp8wXG_awfgRDMVPhNw","use":"sig"}]}
 
 export const environment = {
   production: false,
   site: 'spearhead',
   apiGatewaySettings: {
     // endpointUrl: 'https://localhost:44340',
-    endpointUrl: "https://vertigo.druidcloud.dev/rollthecloudinc/spearhead-objects/shapeshifter"
+    endpointUrl: "https://m7k310bu9a.execute-api.us-east-1.amazonaws.com/rollthecloudinc/spearhead-objects/shapeshifter"
   },
   mediaSettings: {
-    endpointUrl: 'https://vertigo.druidcloud.dev/spearhead/media',
+    endpointUrl: 'https://m7k310bu9a.execute-api.us-east-1.amazonaws.com/spearhead/media',
     cloudinaryUrl: 'https://api.cloudinary.com/v1_1/dj4vvkgzw',
     uploadPreset: 'i0hm4opm',
-    imageUrl: 'https://vertigo.druidcloud.dev/spearhead',
+    imageUrl: 'https://m7k310bu9a.execute-api.us-east-1.amazonaws.com/spearhead',
     bucket: 'classifieds-ui-dev',
     prefix: 'media/'
   },
@@ -79,24 +60,24 @@ export const environment = {
     region: ''
   },
   clientSettings: {
-    authority: 'https://sso.druidcloud.dev',
-    client_id: '3lkidn79q4jq8nahkecsguleij',
+    authority: 'https://precheck-local67.auth.us-east-1.amazoncognito.com',
+    client_id: '7h778muira8dkr69dt35jhbjo8',
     redirect_uri: 'http://localhost:4000/auth-callback',
     silent_redirect_uri: 'http://localhost:4000/silent-refresh.html',
     response_type: "code",
-    scope:"openid profile aws.cognito.signin.user.admin ads_api/ads_api taxonomy_api/taxonomy_api chat/chat media_api/media_api profiles_api/profiles_api", /*'ads_api media_api chat IdentityServerApi taxonomy_api api_gateway",*/
+    scope:"openid email profile", /*'ads_api media_api chat IdentityServerApi taxonomy_api api_gateway",*/
     filterProtocolClaims: true,
     loadUserInfo: true,
     automaticSilentRenew: true,
     stateStore: undefined,
     userStore: undefined,
     metadata: {
-      issuer: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_z8PhK3D8V",
-      authorization_endpoint: "https://sso.druidcloud.dev/oauth2/authorize",
-      userinfo_endpoint: "https://sso.druidcloud.dev/oauth2/userInfo",
-      end_session_endpoint: "https://sso.druidcloud.dev/logout",
-      token_endpoint: "https://sso.druidcloud.dev/oauth2/token",
-      jwks_uri: "https://sso.druidcloud.dev/us-east-1_z8PhK3D8V"
+      issuer: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_sWRV0kAgS",
+      authorization_endpoint: "https://precheck-local67.auth.us-east-1.amazoncognito.com/oauth2/authorize",
+      userinfo_endpoint: "https://precheck-local67.auth.us-east-1.amazoncognito.com/oauth2/userInfo",
+      end_session_endpoint: "https://precheck-local67.auth.us-east-1.amazoncognito.com/logout",
+      token_endpoint: "https://precheck-local67.auth.us-east-1.amazoncognito.com/oauth2/token",
+      jwks_uri: "https://precheck-local67.auth.us-east-1.amazoncognito.com/us-east-1_sWRV0kAgS"
     },
     signingKeys: signingKeys.keys
   }

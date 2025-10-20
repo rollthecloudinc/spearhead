@@ -114,7 +114,7 @@ export function markedOptionsFactory(): MarkedOptions {
     !environment.production ? StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    }) : [],
+    , connectInZone: true}) : [],
     StoreRouterConnectingModule.forRoot({
       serializer: MinimalRouterStateSerializer
     }),

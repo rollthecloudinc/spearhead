@@ -1,5 +1,5 @@
 import { BrowserModule, provideClientHydration /*, BrowserTransferStateModule */ } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER,  SecurityContext, PLATFORM_ID } from '@angular/core';
+import { NgModule, SecurityContext, PLATFORM_ID, inject, provideAppInitializer } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withJsonpSupport } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -172,7 +172,10 @@ export function markedOptionsFactory(): MarkedOptions {
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: LogoutInterceptor, multi: true },
         { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
-        { provide: APP_INITIALIZER, useFactory: initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }), multi: true, deps: [PLATFORM_ID] },
+        provideAppInitializer(() => {
+        const initializerFn = (initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }))(inject(PLATFORM_ID));
+        return initializerFn();
+      }),
         provideHttpClient(withInterceptorsFromDi(), withJsonpSupport()),
     ] })
 export class AppModule {}

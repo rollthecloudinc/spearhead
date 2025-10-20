@@ -1,7 +1,7 @@
 import { BrowserModule, provideClientHydration /*, BrowserTransferStateModule */ } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER,  SecurityContext, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withJsonpSupport } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { NxModule } from '@nrwl/angular';
@@ -88,101 +88,92 @@ export function markedOptionsFactory(): MarkedOptions {
   };
 }
 
-@NgModule({
-  declarations: [AppComponent ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    CommonModule,
-    HttpClientModule,
-    HttpClientJsonpModule,
-    // BrowserTransferStateModule ,
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    NgxJsonViewerModule,
-    TransferHttpCacheModule,
-    MarkdownModule.forRoot({
-      sanitize: SecurityContext.NONE,
-      markedOptions: {
-        provide: MarkedOptions,
-        useFactory: markedOptionsFactory,
-      },
-    }),
-    // NbA11yModule.forRoot(),
-    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' /*, relativeLinkResolution: 'legacy' */ }),
-    !environment.production ? StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production
-    , connectInZone: true}) : [],
-    StoreRouterConnectingModule.forRoot({
-      serializer: MinimalRouterStateSerializer
-    }),
-    StoreModule.forRoot(
-      reducers,
-      {
-        metaReducers,
-        runtimeChecks: {
-          strictActionImmutability: true,
-          strictStateImmutability: true
-        }
-      }
-    ),
-    EffectsModule.forRoot([]),
-    BridgeModule,
-    StateModule,
-    // MaterialModule,
-    UtilsModule,
-    // LoggingModule,
-    TokenModule,
-    ContentModule,
-    ContextModule,
-    AuthModule.forRoot(),
-    OidcModule.forRoot(),
-    // MonacoEditorModule.forRoot(),
-    MediaModule,
-    // NxModule.forRoot(),
-    EntityDataModule.forRoot({}),
-    AliasModule,
-    PanelsModule,
-    RenderModule,
-    PagealiasModule,
-    // FormlyModule,
-    TransformModule,
-    AwcogModule,
-    KeyvalModule,
-    DeityModule,
-    LoopModule,
-    DruidFormsModule,
-    // AlienaliasModule, // @todo: for now to avoid routing errors while working on ssr issues.
-    OutsiderModule,
-    TractorbeamModule,
-    RefineryModule,
-    SheathModule,
-    NgxDropzoneModule,
-    // ReactModule,
-    PagesModule,
-    OrdainModule,
-    DparamModule,
-    DetourModule
-  ],
-  providers: [
-    provideClientHydration(),
-    CatchAllGuard,
-    { provide: SITE_NAME, useValue: environment.site },
-    { provide: CLIENT_SETTINGS, useValue: new ClientSettings(environment.clientSettings) },
-    { provide: MEDIA_SETTINGS, useValue: new MediaSettings(environment.mediaSettings) },
-    { provide: PANELS_SETTINGS, useValue: new PanelsSettings(environment.panelsSettings) },
-    { provide: ALIENALIAS_SETTINGS, useValue: new AlienaliasSettings(environment.alienaliasSettings) },
-    { provide: PAGES_SETTINGS, useValue: new PagesSettings({ disableRouting: false }) },
-    { provide: COGNITO_SETTINGS, useValue: new CognitoSettings(environment.cognitoSettings) },
-    { provide: CLOUDWATCH_RUM_SETTINGS, useValue: new CloudwatchRumSettings(environment.rumSettings) },
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LogoutInterceptor, multi: true },
-    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
-    { provide: APP_INITIALIZER, useFactory: initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }), multi: true, deps: [ PLATFORM_ID ] },
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [AppComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        CommonModule,
+        // BrowserTransferStateModule ,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        NgxJsonViewerModule,
+        TransferHttpCacheModule,
+        MarkdownModule.forRoot({
+            sanitize: SecurityContext.NONE,
+            markedOptions: {
+                provide: MarkedOptions,
+                useFactory: markedOptionsFactory,
+            },
+        }),
+        // NbA11yModule.forRoot(),
+        RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' /*, relativeLinkResolution: 'legacy' */ }),
+        !environment.production ? StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production,
+            connectInZone: true
+        }) : [],
+        StoreRouterConnectingModule.forRoot({
+            serializer: MinimalRouterStateSerializer
+        }),
+        StoreModule.forRoot(reducers, {
+            metaReducers,
+            runtimeChecks: {
+                strictActionImmutability: true,
+                strictStateImmutability: true
+            }
+        }),
+        EffectsModule.forRoot([]),
+        BridgeModule,
+        StateModule,
+        // MaterialModule,
+        UtilsModule,
+        // LoggingModule,
+        TokenModule,
+        ContentModule,
+        ContextModule,
+        AuthModule.forRoot(),
+        OidcModule.forRoot(),
+        // MonacoEditorModule.forRoot(),
+        MediaModule,
+        // NxModule.forRoot(),
+        EntityDataModule.forRoot({}),
+        AliasModule,
+        PanelsModule,
+        RenderModule,
+        PagealiasModule,
+        // FormlyModule,
+        TransformModule,
+        AwcogModule,
+        KeyvalModule,
+        DeityModule,
+        LoopModule,
+        DruidFormsModule,
+        // AlienaliasModule, // @todo: for now to avoid routing errors while working on ssr issues.
+        OutsiderModule,
+        TractorbeamModule,
+        RefineryModule,
+        SheathModule,
+        NgxDropzoneModule,
+        // ReactModule,
+        PagesModule,
+        OrdainModule,
+        DparamModule,
+        DetourModule], providers: [
+        provideClientHydration(),
+        CatchAllGuard,
+        { provide: SITE_NAME, useValue: environment.site },
+        { provide: CLIENT_SETTINGS, useValue: new ClientSettings(environment.clientSettings) },
+        { provide: MEDIA_SETTINGS, useValue: new MediaSettings(environment.mediaSettings) },
+        { provide: PANELS_SETTINGS, useValue: new PanelsSettings(environment.panelsSettings) },
+        { provide: ALIENALIAS_SETTINGS, useValue: new AlienaliasSettings(environment.alienaliasSettings) },
+        { provide: PAGES_SETTINGS, useValue: new PagesSettings({ disableRouting: false }) },
+        { provide: COGNITO_SETTINGS, useValue: new CognitoSettings(environment.cognitoSettings) },
+        { provide: CLOUDWATCH_RUM_SETTINGS, useValue: new CloudwatchRumSettings(environment.rumSettings) },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: LogoutInterceptor, multi: true },
+        { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
+        { provide: APP_INITIALIZER, useFactory: initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }), multi: true, deps: [PLATFORM_ID] },
+        provideHttpClient(withInterceptorsFromDi(), withJsonpSupport()),
+    ] })
 export class AppModule {}
 

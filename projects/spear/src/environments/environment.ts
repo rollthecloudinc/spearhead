@@ -41,9 +41,9 @@ export const environment = {
     clientId: '0oa33yn39XtrnvY774x6',
   },
   cognitoSettings: {
-    identityPoolId: 'us-east-1:6f5cdc41-35b0-41ca-9f6b-7eca11320942',
+    identityPoolId: 'us-east-1:026caf18-c852-451b-a93e-fb431c4eee6d',
     region: 'us-east-1',
-    userPoolId: 'us-east-1_z8PhK3D8V'
+    userPoolId: 'us-east-1_sWRV0kAgS'
   },
   panelsSettings: {
     openSearchDomain: 'search-classifieds-ui-dev-eldczuhq3vesgpjnr3vie6cagq',

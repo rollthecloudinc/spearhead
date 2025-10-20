@@ -134,7 +134,7 @@
     "rxjs": "~7.5.2",
     "selectn": "^1.1.2",
     "tslib": "^2.3.1",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^16.0.0",
@@ -180,7 +180,7 @@
     "tailwindcss": "^3.1.8",
     "ts-node": "^10.9.1",
     "tslint": "~6.1.0",
-    "typescript": "^5.0.4",
+    "typescript": "^5.9.3",
     "webpack-shell-plugin-next": "^2.2.2",
     "winston-loggly-bulk": "^3.2.1"
   }

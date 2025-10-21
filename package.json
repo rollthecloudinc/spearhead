@@ -10,8 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "prerender:dev": "ng run spear:prerender:dev --no-guess-routes --routes-file ./data/routes.txt",
-    "prerender:prod": "ng run spear:prerender:prod --no-guess-routes --routes-file ./data/routes.txt"
+    "prerender:dev": "ng run spear:prerender:dev",
+    "prerender:prod": "ng run spear:prerender:prod"
   },
   "browser": {
     "vm": false

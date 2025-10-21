@@ -218,7 +218,9 @@
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "browserTarget": "spear:build",
-            "serverTarget": "spear:server"
+            "serverTarget": "spear:server",
+            "discoverRoutes": false,
+            "routesFile": "data/routes.txt"
           },
           "configurations": {
             "dev": {

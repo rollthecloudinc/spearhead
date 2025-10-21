@@ -2,8 +2,8 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
 const share = mf.share;
-const tailwindcss = require('tailwindcss');
-const autoprefixer = require('autoprefixer');
+// const tailwindcss = require('tailwindcss'); // REMOVE THIS LINE
+// const autoprefixer = require('autoprefixer'); // REMOVE THIS LINE
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
@@ -26,20 +26,14 @@ module.exports = {
   experiments: {
     outputModule: true
   },
+  // FIXED PLUGINS ARRAY
   plugins: [
-    tailwindcss,
-    autoprefixer,
+    // tailwindcss, // removed
+    // autoprefixer, // removed
     new ModuleFederationPlugin({
         library: { type: "module" },
-
-        // For remotes (please adjust)
-        // name: "ipe",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/ipe/src/app/app.component.ts',
-        // },        
         
-        // For hosts (please adjust)
+        // ... (rest of your Module Federation configuration is unchanged)
         /*remotes: {
           "fedMicroNg": "http://localhost:3000/remoteEntry.js"
         },*/

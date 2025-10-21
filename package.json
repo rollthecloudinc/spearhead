@@ -189,6 +189,7 @@
   },
   "overrides": {
     "@smithy/types": "2.2.0",
-    "@aws-crypto/util": "1.2.2" 
+    "@aws-crypto/util": "1.2.2",
+    "debug": "4.3.4"
   }
 }

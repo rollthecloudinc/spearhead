@@ -93,20 +93,20 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "spear:build",
+            "buildTarget": "spear:build",
             "port": 4000,
             "publicHost": "http://localhost:4000"
           },
           "configurations": {
             "prod": {
-              "browserTarget": "spear:build:prod"
+              "buildTarget": "spear:build:prod"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-builders/custom-webpack:extract-i18n",
           "options": {
-            "browserTarget": "spear:build",
+            "buildTarget": "spear:build",
             "customWebpackConfig": {
               "path": "projects/spear/webpack.config.js"
             }
@@ -259,5 +259,8 @@
     "@schematics/angular:resolver": {
       "typeSeparator": "."
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

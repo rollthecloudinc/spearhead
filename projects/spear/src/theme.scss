@@ -1,7 +1,6 @@
 @use '@angular/material' as mat;
 @include mat.elevation-classes();
 @include mat.app-background();
-@include mat.legacy-core(); // this is the important line
 
 /* ======== Angular material custom themes ======== */
 $my-custom-primary: mat.m2-define-palette(mat.$m2-cyan-palette);
@@ -20,7 +19,6 @@ $my-custom-theme: mat.m2-define-light-theme((
 
 // add your regular theme definition here
 @include mat.all-component-themes($my-custom-theme);
-@include mat.all-legacy-component-themes($my-custom-theme); // this is the important line
 
 .mat-tab-body-wrapper {
   height: 100%;

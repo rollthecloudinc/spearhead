@@ -1,5 +1,5 @@
 import { BrowserModule, provideClientHydration /*, BrowserTransferStateModule */ } from '@angular/platform-browser';
-import { NgModule, SecurityContext, PLATFORM_ID, inject, provideAppInitializer } from '@angular/core';
+import { NgModule, SecurityContext, PLATFORM_ID, inject, provideAppInitializer, APP_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withJsonpSupport } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +26,7 @@ import { BridgeModule } from '@rollthecloudinc/bridge';
 import { StateModule } from '@rollthecloudinc/state';
 import { AwcogModule, CognitoSettings, COGNITO_SETTINGS } from '@rollthecloudinc/awcog';
 import { initializeIdbDataFactory, KeyvalModule } from '@rollthecloudinc/keyval';
-import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
+import { MarkdownModule, MARKED_OPTIONS, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -42,7 +42,7 @@ import { DeityModule } from '@rollthecloudinc/deity';
 import { LoopModule } from '@rollthecloudinc/loop';
 import { RenderModule } from '@rollthecloudinc/render';
 import { FormsModule as DruidFormsModule } from '@rollthecloudinc/forms';
-import { TransferHttpCacheModule } from '@angular/ssr';
+// import { TransferHttpCacheModule } from '@angular/ssr';
 import { AlienaliasModule, AlienaliasSettings, ALIENALIAS_SETTINGS } from '@rollthecloudinc/alienalias';
 import { OutsiderModule } from '@rollthecloudinc/outsider';
 import { TractorbeamModule } from '@rollthecloudinc/tractorbeam';
@@ -76,7 +76,7 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
 
 export function markedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
-  renderer.link = (href: string, title: string, text: string) => {
+  renderer.link = ({ href, title, text }) => {
     if(text === 'page') {
       return `<classifieds-ui-panel-page id="${href}"></classifieds-ui-panel-page>`;
     } else {
@@ -89,7 +89,7 @@ export function markedOptionsFactory(): MarkedOptions {
 }
 
 @NgModule({ declarations: [AppComponent],
-    bootstrap: [AppComponent], imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    bootstrap: [AppComponent], imports: [/*BrowserModule.withServerTransition({ appId: 'serverApp' }),*/
         CommonModule,
         // BrowserTransferStateModule ,
         FormsModule,
@@ -97,11 +97,11 @@ export function markedOptionsFactory(): MarkedOptions {
         BrowserAnimationsModule,
         FlexLayoutModule,
         NgxJsonViewerModule,
-        TransferHttpCacheModule,
+        // TransferHttpCacheModule,
         MarkdownModule.forRoot({
             sanitize: SecurityContext.NONE,
             markedOptions: {
-                provide: MarkedOptions,
+                provide: MARKED_OPTIONS,
                 useFactory: markedOptionsFactory,
             },
         }),
@@ -161,6 +161,7 @@ export function markedOptionsFactory(): MarkedOptions {
         DetourModule], providers: [
         provideClientHydration(),
         CatchAllGuard,
+        { provide: APP_ID, useValue: 'serverApp' },
         { provide: SITE_NAME, useValue: environment.site },
         { provide: CLIENT_SETTINGS, useValue: new ClientSettings(environment.clientSettings) },
         { provide: MEDIA_SETTINGS, useValue: new MediaSettings(environment.mediaSettings) },

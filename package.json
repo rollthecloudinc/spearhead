@@ -190,6 +190,7 @@
     "winston-loggly-bulk": "^3.2.1"
   },
   "overrides": {
+    "@types/node": "20.12.12",
     "debug": "4.3.4",
     "@smithy/types": "4.8.0", 
     "@aws-crypto/util": "1.2.2", 

@@ -191,11 +191,19 @@
     "debug": "4.3.4",
     "@smithy/types": "2.2.0",
     "@aws-crypto/util": "1.2.2", 
+    "webpack": "5.91.0",
+    "tapable": "2.2.1",
     "@aws-crypto/crc32": {
       "@aws-crypto/util": "1.2.2"
     },
     "@aws-sdk/eventstream-codec": {
       "@aws-crypto/util": "1.2.2"
+    },
+    "@angular-architects/module-federation-runtime": {
+      "webpack": "5.91.0"
+    },
+    "@angular-architects/module-federation": {
+      "webpack": "5.91.0"
     }
   }
 }

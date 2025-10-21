@@ -93,20 +93,20 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "spear:build",
+            "buildTarget": "spear:build",
             "port": 4000,
             "publicHost": "http://localhost:4000"
           },
           "configurations": {
             "prod": {
-              "browserTarget": "spear:build:prod"
+              "buildTarget": "spear:build:prod"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-builders/custom-webpack:extract-i18n",
           "options": {
-            "browserTarget": "spear:build",
+            "buildTarget": "spear:build",
             "customWebpackConfig": {
               "path": "projects/spear/webpack.config.js"
             }
@@ -215,7 +215,7 @@
           "defaultConfiguration": ""
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "browserTarget": "spear:build",
             "serverTarget": "spear:server"
@@ -233,5 +233,34 @@
         }
       }
     }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }

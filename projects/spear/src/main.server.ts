@@ -1,6 +1,6 @@
 import 'zone.js/node';
 
-export { ngExpressEngine } from '@nguniversal/express-engine'; 
+export { ngExpressEngine } from '@angular/ssr'; 
 export { enableProdMode } from '@angular/core';
 export { AppServerModule } from './app/app.server.module';
 export { HOST_NAME, PROTOCOL } from '@rollthecloudinc/utils';
@@ -9,7 +9,7 @@ export { renderModule } from '@angular/platform-server';
 
 // import { renderModule, renderModuleFactory } from '@angular/platform-server';
 // import { environment } from './environments/environment';
-import { ngExpressEngine } from '@nguniversal/express-engine';
+import { ngExpressEngine } from '@angular/ssr';
 import { AppServerModule } from './app/app.server.module';
 
 // import 'localstorage-polyfill';
@@ -17,7 +17,7 @@ import * as express from 'express';
 // const { ngExpressEngine, AppServerModule, enableProdMode } = require('../../../dist/spear/server/main');
 import { APP_BASE_HREF } from '@angular/common';
 import { enableProdMode } from '@angular/core';
-import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { REQUEST } from './express.tokens';
 import { HOST_NAME, PROTOCOL } from '@rollthecloudinc/utils';
 import { join } from 'path';
 // const winston  = require('winston');

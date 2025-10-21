@@ -158,7 +158,7 @@
     "@tailwindcss/typography": "^0.5.4",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "^2.0.10",
-    "@types/node": "^20.12.12",
+    "@types/node": "^12.20.42",
     "autoprefixer": "^10.4.4",
     "codelyzer": "^6.0.0",
     "cookie-parser": "^1.4.6",
@@ -190,7 +190,7 @@
     "winston-loggly-bulk": "^3.2.1"
   },
   "overrides": {
-    "@types/node": "20.12.12",
+    "@types/node": "12.20.42",
     "debug": "4.3.4",
     "@smithy/types": "4.8.0", 
     "@aws-crypto/util": "1.2.2", 

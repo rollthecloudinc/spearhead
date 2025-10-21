@@ -152,7 +152,11 @@
             "tsConfig": "projects/spear/tsconfig.server.json",
             "sourceMap": true,
             "optimization": false,
-            "verbose": true
+            "verbose": true,
+            "externalDependencies": [
+              "@aws-sdk/client-s3",
+              "aws-crt"
+            ]
           },
           "configurations": {
             "prod": {

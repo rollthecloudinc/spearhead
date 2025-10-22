@@ -75,3 +75,8 @@ export function app() {
 
   return server;
 }
+
+// 🎉 FIX: Explicitly export the AppServerModule.
+// This is the specific export the Universal runtime expects to find 
+// when using NgModule-based SSR, resolving your error.
+export { AppServerModule } from './app/app.server.module';

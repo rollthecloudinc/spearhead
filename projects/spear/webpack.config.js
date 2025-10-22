@@ -40,7 +40,7 @@ module.exports = {
 
         shared: share({
           "@angular/platform-browser": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
-          "@angular/platform-browser/animations": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
+          //"@angular/platform-browser/animations": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
 
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false }, 
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false }, 
@@ -51,11 +51,11 @@ module.exports = {
           "@angular/cdk": { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true, eager: false },
           "@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true, eager: false },
 
-          "@rollthecloudinc/utils": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@rollthecloudinc/attributes": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@rollthecloudinc/plugin": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@rollthecloudinc/material": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
-          "@rollthecloudinc/content": { singleton: true, strictVersion: false, requiredVersion: 'auto' },
+          "@rollthecloudinc/utils": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
+          "@rollthecloudinc/attributes": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
+          "@rollthecloudinc/plugin": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
+          "@rollthecloudinc/material": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
+          "@rollthecloudinc/content": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
 
           ...sharedMappings.getDescriptors()
         })

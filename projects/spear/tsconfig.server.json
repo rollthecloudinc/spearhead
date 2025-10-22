@@ -1,8 +1,14 @@
+/* This configuration file is used for the Angular Server-Side Rendering (SSR) build. */
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc-server",
-    "module": "commonjs",
+    
+    // FIX for TS5095: Changed from "commonjs" to "es2020". 
+    // This is compatible with "moduleResolution": "bundler" 
+    // (inherited from the root tsconfig.json).
+    "module": "es2020",
+    
     "types": [
       "node"
     ]
@@ -11,7 +17,6 @@
     "src/main.server.ts"
   ],
   "angularCompilerOptions": {
-    "entryModule": "./src/app/app.server.module#AppServerModule",
-    // "enableIvy": false
+    "entryModule": "./src/app/app.server.module#AppServerModule"
   }
 }

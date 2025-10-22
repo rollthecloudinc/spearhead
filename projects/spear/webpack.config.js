@@ -38,18 +38,22 @@ module.exports = {
           "fedMicroNg": "http://localhost:3000/remoteEntry.js"
         },*/
 
+        /**
+         * @todo: I had to comment out several of these modules otherwise the site
+         * wouldn't load with an error or a memory error occurred when serving.
+         */
         shared: share({
           "@angular/platform-browser": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
-          //"@angular/platform-browser/animations": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
+          "@angular/platform-browser/animations": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
 
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false }, 
+          /*"@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false }, 
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false }, 
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false }, 
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
-          "@angular/forms": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },
+          "@angular/forms": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: false },*/
 
           "@angular/cdk": { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true, eager: false },
-          "@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true, eager: false },
+          //"@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto', includeSecondaries: true, eager: false },
 
           "@rollthecloudinc/utils": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
           "@rollthecloudinc/attributes": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
@@ -57,7 +61,7 @@ module.exports = {
           "@rollthecloudinc/material": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
           "@rollthecloudinc/content": { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: false },
 
-          ...sharedMappings.getDescriptors()
+          //...sharedMappings.getDescriptors()
         })
         
     }),

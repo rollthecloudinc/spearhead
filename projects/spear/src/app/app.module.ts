@@ -2,7 +2,7 @@ import { BrowserModule, provideClientHydration /*, BrowserTransferStateModule */
 import { NgModule, SecurityContext, PLATFORM_ID, inject, provideAppInitializer, APP_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withJsonpSupport } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { NxModule } from '@nrwl/angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -91,10 +91,11 @@ export function markedOptionsFactory(): MarkedOptions {
 @NgModule({ declarations: [AppComponent],
     bootstrap: [AppComponent], imports: [/*BrowserModule.withServerTransition({ appId: 'serverApp' }),*/
         CommonModule,
+        BrowserModule,
         // BrowserTransferStateModule ,
         FormsModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule,
+        //BrowserAnimationsModule,
         FlexLayoutModule,
         NgxJsonViewerModule,
         // TransferHttpCacheModule,

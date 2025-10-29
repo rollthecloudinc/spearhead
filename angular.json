@@ -16,18 +16,43 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-architects/native-federation:build",
+          "options": {
+            "target": "spear:esbuild:development"
+          },
+          "configurations": {
+            "production": {
+              "target": "spear:esbuild:production"
+            },
+            "development": {
+              "target": "spear:esbuild:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "esbuild": {
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/spear",
-            "index": "projects/spear/src/index.html",
-            "main": "projects/spear/src/main.ts",
-            "polyfills": "projects/spear/src/polyfills.ts",
             "tsConfig": "projects/spear/tsconfig.app.json",
+            "index": "projects/spear/src/index.html",
+            "polyfills": [
+              "projects/spear/src/polyfills.ts"
+            ],
             "assets": [
               "projects/spear/src/favicon.ico",
               "projects/spear/src/assets",
               "projects/spear/src/staticwebapp.config.json",
-              "projects/spear/src/.github"
+              {
+                "glob": "federation.manifest.json",
+                "input": "projects/spear/src/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "es-module-shims.js",
+                "input": "node_modules/es-module-shims/dist",
+                "output": "/"
+              }
             ],
             "styles": [
               "projects/spear/src/styles.scss",
@@ -35,85 +60,95 @@
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": [
-              "node_modules/marked/bin/marked.js",
+              "node_modules/marked/lib/marked.umd.js",
               "node_modules/prismjs/prism.js",
               "node_modules/prismjs/components/prism-json.min.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
               "node_modules/prismjs/components/prism-css.min.js"
             ],
-            "vendorChunk": true,
+            "browser": "projects/spear/src/main.ts", 
             "extractLicenses": false,
-            "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true,
-            "customWebpackConfig": {
-              "path": "projects/spear/webpack.config.js"
-            },
-            "commonChunk": false
+            "define": {
+              "process": "{\"env\": {\"NODE_ENV\": \"development\"}}", 
+              "process.env.NODE_ENV": "\"development\""
+            }
           },
           "configurations": {
-            "dev": {
+            "production": {
               "outputHashing": "all",
-              "vendorChunk": false,
               "extractLicenses": true,
-              "buildOptimizer": true,
-              "namedChunks": false,
-              "commonChunk": true,
               "optimization": true,
-              "fileReplacements": [
-                {
-                  "replace": "projects/spear/src/environments/environment.ts",
-                  "with": "projects/spear/src/environments/environment.dev.ts"
-                }
-              ]
-            },
-            "prod": {
               "sourceMap": false,
-              "outputHashing": "all",
-              "vendorChunk": false,
-              "extractLicenses": true,
-              "buildOptimizer": true,
-              "namedChunks": false,
-              "commonChunk": true,
-              "optimization": true,
-              "customWebpackConfig": {
-                "path": "projects/spear/webpack.prod.config.js"
-              },
               "fileReplacements": [
                 {
                   "replace": "projects/spear/src/environments/environment.ts",
                   "with": "projects/spear/src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "development": {
+              "outputHashing": "all",
+              "extractLicenses": true,
+              "optimization": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "projects/spear/src/environments/environment.ts",
+                  "with": "projects/spear/src/environments/environment.dev.ts"
+                }
+              ]
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "development"
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-architects/native-federation:build",
           "options": {
-            "buildTarget": "spear:build",
-            "port": 4000,
-            "publicHost": "http://localhost:4000"
-          },
+            "target": "spear:serve-original:development",
+            "tsConfig": "projects/spear/tsconfig.app.json",
+            "rebuildDelay": 0,
+            "dev": true,
+            "port": 4000
+        },
           "configurations": {
-            "prod": {
-              "buildTarget": "spear:build:prod"
-            }
+          "production": {
+            "dev": false,
+            "target": "spear:serve-original:production"
+          },
+          "development": {
+            "target": "spear:serve-original:development"
           }
         },
-        "extract-i18n": {
-          "builder": "@angular-builders/custom-webpack:extract-i18n",
+          "defaultConfiguration": "development"
+        },
+        "serve-original": {
+          "builder": "@angular-devkit/build-angular:dev-server", 
           "options": {
-            "buildTarget": "spear:build",
-            "customWebpackConfig": {
-              "path": "projects/spear/webpack.config.js"
+            "port": 4000,
+            "buildTarget": "spear:esbuild:development"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "spear:esbuild:production"
+            },
+            "development": {
+              "buildTarget": "spear:esbuild:development"
             }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "spear:esbuild:development",
+            "outFile": "messages.xlf",
+            "format": "xlf"
           }
         },
         "test": {
-          "builder": "@angular-builders/custom-webpack:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/spear/src/test.ts",
             "polyfills": "projects/spear/src/polyfills.ts",
@@ -136,16 +171,16 @@
             "devServerTarget": "spear:serve"
           },
           "configurations": {
-            "dev": {
-              "devServerTarget": "spear:serve:dev"
+            "development": {
+              "devServerTarget": "spear:serve:development"
             },
-            "prod": {
-              "devServerTarget": "spear:serve:prod"
+            "production": {
+              "devServerTarget": "spear:serve:production"
             }
           }
         },
         "server": {
-          "builder": "@angular-builders/custom-webpack:server",
+          "builder": "@angular-devkit/build-angular:server",
           "options": {
             "outputPath": "dist/spear-server",
             "main": "projects/spear/src/main.server.ts",
@@ -159,7 +194,7 @@
             ]
           },
           "configurations": {
-            "prod": {
+            "production": {
               "fileReplacements": [
                 {
                   "replace": "projects/spear/src/environments/environment.ts",
@@ -169,7 +204,7 @@
               "sourceMap": true,
               "optimization": true
             },
-            "dev": {
+            "development": {
               "fileReplacements": [
                 {
                   "replace": "projects/spear/src/environments/environment.ts",
@@ -195,7 +230,7 @@
             "sourceMap": true
           },
           "configurations": {
-            "prod": {
+            "production": {
               "optimization": true,
               "extractLicenses": true,
               "fileReplacements": [
@@ -205,7 +240,7 @@
                 }
               ]
             },
-            "dev": {
+            "development": {
               "optimization": true,
               "extractLicenses": true,
               "fileReplacements": [
@@ -221,19 +256,19 @@
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
           "options": {
-            "browserTarget": "spear:build",
-            "serverTarget": "spear:server",
+            "browserTarget": "spear:esbuild:development",
+            "serverTarget": "spear:server:development",
             "discoverRoutes": false,
             "routesFile": "data/routes.txt"
           },
           "configurations": {
-            "dev": {
-              "browserTarget": "spear:build:dev",
-              "serverTarget": "spear:server:dev"
+            "development": {
+              "browserTarget": "spear:esbuild:development",
+              "serverTarget": "spear:server:development"
             },
-            "prod": {
-              "browserTarget": "spear:build:prod",
-              "serverTarget": "spear:server:prod"
+            "production": {
+              "browserTarget": "spear:esbuild:production",
+              "serverTarget": "spear:server:production"
             }
           }
         }

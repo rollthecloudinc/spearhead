@@ -7,6 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <script>
+    window.esmsInitOptions = {
+      shimMode: true,
+    };
+  </script>
+  <!-- Critical: Load ES Module Shims BEFORE any Angular code runs -->
+  <!-- This is required for the Native Federation runtime to function in the browser. -->
+  <script src="es-module-shims.js" type="module"></script>
+  
   <!-- required for integration with public api bridge -->
   <script type="text/javascript">var bridge;</script>
 </head>

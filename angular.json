@@ -190,7 +190,10 @@
             "verbose": true,
             "externalDependencies": [
               "@aws-sdk/client-s3",
-              "aws-crt"
+              "aws-crt",
+              "@angular-architects/native-federation",
+              "@angular-architects/native-federation-devkit",
+              "@softarc/native-federation-runtime"
             ]
           },
           "configurations": {

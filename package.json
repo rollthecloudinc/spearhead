@@ -197,6 +197,7 @@
     "@types/node": "20.12.12",
     "debug": "4.3.4",
     "@smithy/types": "4.8.0",
+    "mime-types": "3.0.1",
     "@aws-crypto/util": "1.2.2",
     "@aws-crypto/crc32": {
       "@aws-crypto/util": "1.2.2"

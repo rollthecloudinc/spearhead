@@ -1,8 +1,14 @@
+/* This file is used for server-side or lambda builds. */
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc-server",
-    "module": "commonjs",
+    
+    // FIX for TS5095: Changed from "commonjs" to "es2020". 
+    // This setting is compatible with "moduleResolution": "bundler" 
+    // (inherited from tsconfig.json) while maintaining a modern Node.js target.
+    "module": "es2020",
+    
     "types": [
       "node"
     ]
@@ -11,7 +17,6 @@
     "src/main.lambda.ts"
   ],
   "angularCompilerOptions": {
-    "entryModule": "./src/app/app.server.module#AppServerModule",
-    // "enableIvy": false
+    "entryModule": "./src/app/app.server.module#AppServerModule"
   }
 }

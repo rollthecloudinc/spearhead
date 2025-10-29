@@ -54,4 +54,12 @@ import 'zone.js';  // Included with Angular CLI.
 
   // This is required to use bson library since it is depdendent on nodejs lib that uses global.
 (window as any).global = window;
+
+// In polyfills.ts or a new file like src/process.ts
+(window as any).process = {
+  env: {
+    DEBUG: undefined, // Or any other environment variables your app needs
+    // NODE_ENV: 'development' or 'production' if needed
+  },
+};
 //(window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;

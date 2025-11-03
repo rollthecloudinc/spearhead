@@ -128,7 +128,9 @@
               "extractLicenses": true,
               "optimization": true,
               "sourceMap": false,
+              "tsConfig": "projects/spear/tsconfig.server.json",
               "server": "projects/spear/src/main.server.ts",
+              "define": {},
               "ssr": {
                 "entry": "projects/spear/server.ts"
               },
@@ -148,7 +150,9 @@
               "extractLicenses": true,
               "optimization": false,
               "sourceMap": true,
+              "tsConfig": "projects/spear/tsconfig.server.json",
               "server": "projects/spear/src/main.server.ts",
+              "define": {},
               "ssr": {
                 "entry": "projects/spear/server.ts"
               },

@@ -107,7 +107,7 @@ export function markedOptionsFactory(): MarkedOptions {
             },
         }),
         // NbA11yModule.forRoot(),
-        RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' /*, relativeLinkResolution: 'legacy' */ }),
+        RouterModule.forRoot(routes),
         !environment.production ? StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,

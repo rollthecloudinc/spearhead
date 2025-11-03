@@ -17,15 +17,7 @@
     "lib": [
       "es2022",
       "dom"
-    ],
-    "paths": {
-      "@softarc/native-federation-runtime": [
-        "node_modules/@softarc/native-federation-runtime" 
-      ],
-      "@angular/*": [
-        "node_modules/@angular/*"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

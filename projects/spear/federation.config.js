@@ -47,10 +47,6 @@ module.exports = withNativeFederation({
     "cssjson",
     'jsonpath-plus',
     'tslib'
-    //'@angular/platform-browser/animations'
-    // '@softarc/native-federation-runtime'
-    /*"es-module-shims"*/
-    // Add further packages you don't need at runtime
   ],
 
   // Please read our FAQ about sharing libs:

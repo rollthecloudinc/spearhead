@@ -74,6 +74,11 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
   timeout: 20000, // request timeout
 }
 
+export function getPrerenderParams(): Record<string, any>[] {
+  // This explicitly tells the prerenderer what dynamic IDs to use.
+  return panelpages.map(([id]) => ({ panelPageId: id }));
+}
+
 export function markedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
   renderer.link = ({ href, title, text }) => {
@@ -107,7 +112,7 @@ export function markedOptionsFactory(): MarkedOptions {
             },
         }),
         // NbA11yModule.forRoot(),
-        RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' /*, relativeLinkResolution: 'legacy' */ }),
+        RouterModule.forRoot(routes /*, { initialNavigation: 'enabledNonBlocking' /*, relativeLinkResolution: 'legacy' }*/),
         !environment.production ? StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,
@@ -145,7 +150,7 @@ export function markedOptionsFactory(): MarkedOptions {
         // FormlyModule,
         TransformModule,
         AwcogModule,
-        KeyvalModule,
+        KeyvalModule, // @todo: Make this compatible with ssr.
         DeityModule,
         LoopModule,
         DruidFormsModule,
@@ -175,10 +180,10 @@ export function markedOptionsFactory(): MarkedOptions {
         { provide: HTTP_INTERCEPTORS, useClass: LogoutInterceptor, multi: true },
         { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
         provideAppInitializer(() => {
-        const initializerFn = (initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }))(inject(PLATFORM_ID));
-        return initializerFn();
+        //const initializerFn = (initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }))(inject(PLATFORM_ID));
+        //return initializerFn();
       }),
-        provideHttpClient(withInterceptorsFromDi(), withJsonpSupport()),
+        provideHttpClient(withInterceptorsFromDi(), withJsonpSupport())
     ] })
 export class AppModule {}
 

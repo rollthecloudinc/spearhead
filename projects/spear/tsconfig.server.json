@@ -7,16 +7,35 @@
     // FIX for TS5095: Changed from "commonjs" to "es2020". 
     // This is compatible with "moduleResolution": "bundler" 
     // (inherited from the root tsconfig.json).
-    "module": "es2020",
+    //"module": "es2020",
+// ✅ REVERT: Use CJS-compatible module settings
+    "module": "CommonJS",
+    "moduleResolution": "node", // Or 'node' for traditional CJS resolution
+    "target": "ES2022",
+    
+    // Keep this, as it helps with the CJS-to-ESM conversion internally
+    //"esModuleInterop": true, 
+    //"allowSyntheticDefaultImports": true,
+
+    // ... ensure "allowSyntheticDefaultImports" is also true or absent (default is true with esModuleInterop)
     
     "types": [
       "node"
-    ]
+    ],
+
+    "paths": {
+    }
   },
   "files": [
-    "src/main.server.ts"
+    "src/main.server.ts",
+    "src/main.ts",
+    "src/polyfills.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "./src/app/app.server.module#AppServerModule"
-  }
+  },
+  "include": [
+    "src/main.server.ts",
+    "server.ts"
+  ]
 }

@@ -46,11 +46,16 @@ module.exports = withNativeFederation({
     "recursive-diff",
     "cssjson",
     'jsonpath-plus',
-    'tslib'
+    'tslib',
     //'@angular/platform-browser/animations'
-    // '@softarc/native-federation-runtime'
+    '@softarc/native-federation-runtime'
     /*"es-module-shims"*/
     // Add further packages you don't need at runtime
+  ],
+
+  externals: [
+    'oidc-client',
+    "@angular-architects/native-federation"
   ],
 
   // Please read our FAQ about sharing libs:
@@ -69,6 +74,23 @@ module.exports = withNativeFederation({
     // If 'auto' fails, explicitly set to '/' or the full path.
     // publicPath: 'http://localhost:4000/' 
   },*/
+
+  extraWebpackConfig: {
+  module: {
+      rules: [
+        {
+          // This rule targets the Babel loader used by Angular CLI
+          test: /\.m?js$/,
+          // Crucially, EXCLUDE the native federation packages from processing by Babel/Webpack loaders
+          // The error indicates a file from this path is being processed incorrectly.
+          exclude: [
+            /node_modules\/@angular-architects\/native-federation/,
+            /node_modules\/@softarc\/native-federation-runtime/,
+          ],
+        }
+      ]
+    }
+    }
 
   // Fix for 'Module parse failed: 'import' and 'export'...' error and 'remoteEntry.js' path error
   /*extraWebpackConfig: {

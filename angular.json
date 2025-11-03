@@ -15,6 +15,29 @@
       "sourceRoot": "projects/spear/src",
       "prefix": "app",
       "architect": {
+        "build-server": {
+          "builder": "@angular-architects/native-federation:build",
+          "options": {
+            "target": "spear:esbuild:development",
+            "ssr": true,
+            "prerender": {
+              "discoverRoutes": false,
+              "routesFile": "data/routes.txt"
+            },
+            "externalDependencies": [
+              "@softarc/native-federation-runtime"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "target": "spear:esbuild:production"
+            },
+            "development": {
+              "target": "spear:esbuild:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
         "build": {
           "builder": "@angular-architects/native-federation:build",
           "options": {
@@ -70,10 +93,25 @@
             "extractLicenses": false,
             "sourceMap": true,
             "optimization": false,
-            "define": {
-              "process": "{\"env\": {\"NODE_ENV\": \"development\"}}", 
-              "process.env.NODE_ENV": "\"development\""
-            }
+            "server": "projects/spear/src/main.server.ts",
+						"ssr": {
+							"entry": "projects/spear/server.ts"
+						},
+            "prerender": {
+              "discoverRoutes": false,
+              "routesFile": "data/routes.txt"
+            },
+            "externalDependencies": [
+              "@aws-sdk/client-s3",
+              "aws-crt",
+              "@angular-architects/native-federation",
+              "@angular-architects/native-federation-devkit",
+              "@softarc/native-federation-runtime",
+              "@softarc/native-federation-node",
+              "oidc-client",
+              "path",
+              "url"
+            ]
           },
           "configurations": {
             "production": {
@@ -187,14 +225,7 @@
             "tsConfig": "projects/spear/tsconfig.server.json",
             "sourceMap": true,
             "optimization": false,
-            "verbose": true,
-            "externalDependencies": [
-              "@aws-sdk/client-s3",
-              "aws-crt",
-              "@angular-architects/native-federation",
-              "@angular-architects/native-federation-devkit",
-              "@softarc/native-federation-runtime"
-            ]
+            "verbose": true
           },
           "configurations": {
             "production": {

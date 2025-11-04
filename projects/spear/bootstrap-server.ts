@@ -19,53 +19,46 @@ import { fileURLToPath } from 'node:url';
 // no actual browser APIs are called.
 
 const applyNoopIndexedDBShim = (): void => {
-    // Only apply if the IndexedDB API is not already present (i.e., we are on Node)
-    if (typeof global.indexedDB === 'undefined') {
-        // Mock IDBRequest object (required return type for open/delete)
-        const mockIDBRequest: any = {
+    // Use globalThis for broad environment compatibility
+    if (typeof globalThis.indexedDB === 'undefined') {
+        
+        // Define a base mock for IDBRequest to prevent property access errors
+        const IDBRequestMock = {
             onsuccess: null,
             onerror: null,
             readyState: 'done',
-            result: null,
-            error: null,
-            source: null,
-            transaction: null,
+            result: undefined,
+            error: undefined,
+            source: undefined,
+            transaction: undefined,
         };
 
-        // Mock the IDBFactory (the global 'indexedDB' object)
-        const mockIndexedDB: any = {
-            open: () => {
-                // Simulate success immediately on the next tick
-                process.nextTick(() => {
-                    if (typeof mockIDBRequest.onsuccess === 'function') {
-                        // Pass mock target, as expected by IDBOpenDBRequest API
-                        mockIDBRequest.onsuccess({ target: mockIDBRequest });
-                    }
-                });
-                return mockIDBRequest;
-            },
-            deleteDatabase: () => mockIDBRequest,
+        // Define a mock for the main IndexedDB object (IDBFactory)
+        const mockIndexedDB = {
+            // open must return an IDBRequest-like object
+            open: () => IDBRequestMock,
+            // deleteDatabase must return an IDBRequest-like object
+            deleteDatabase: () => IDBRequestMock,
             cmp: () => 0, // Comparison function
         };
-        
-        // Expose the mock API to the global scope
-        (global as any).indexedDB = mockIndexedDB;
 
-        // IDBKeyRange is often checked by IndexedDB wrappers/libraries
-        (global as any).IDBKeyRange = {
+        // Expose the mock API to the global scope using globalThis
+        (globalThis as any).indexedDB = mockIndexedDB;
+
+        // IDBKeyRange and other necessary classes
+        (globalThis as any).IDBKeyRange = {
             bound: () => ({}),
             lowerBound: () => ({}),
             upperBound: () => ({}),
             only: () => ({}),
         };
         
-        // Expose IDBCursor and other necessary classes
-        // Use standard TypeScript class syntax
-        (global as any).IDBCursor = class IDBCursor {};
-        (global as any).IDBCursorWithValue = class IDBCursorWithValue {};
-        (global as any).IDBDatabase = class IDBDatabase {};
-        (global as any).IDBObjectStore = class IDBObjectStore {};
-        (global as any).IDBTransaction = class IDBTransaction {};
+        // Expose necessary classes to prevent 'class not defined' errors
+        (globalThis as any).IDBCursor = class IDBCursor {};
+        (globalThis as any).IDBCursorWithValue = class IDBCursorWithValue {};
+        (globalThis as any).IDBDatabase = class IDBDatabase {};
+        (globalThis as any).IDBObjectStore = class IDBObjectStore {};
+        (globalThis as any).IDBTransaction = class IDBTransaction {};
     }
 };
 

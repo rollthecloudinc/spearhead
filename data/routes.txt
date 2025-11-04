@@ -1,3 +1,4 @@
+/
 /pages/create-panel-page
 /native_forms_rebuild_v1
 /native_forms_rebuild_v1/manage

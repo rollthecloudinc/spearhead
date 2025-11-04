@@ -57,7 +57,7 @@
     "@opentelemetry/auto-instrumentations-node": "^0.27.1",
     "@opentelemetry/sdk-metrics-base": "^0.27.0",
     "@opentelemetry/sdk-node": "^0.27.0",
-    "@rollthecloudinc/alias": "20.0.0-alpha.17",
+    "@rollthecloudinc/alias": "20.0.0-alpha.19",
     "@rollthecloudinc/alienalias": "20.0.0-alpha.17",
     "@rollthecloudinc/attributes": "20.0.0-alpha.17",
     "@rollthecloudinc/auth": "20.0.0-alpha.17",

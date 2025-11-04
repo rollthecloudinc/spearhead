@@ -10,7 +10,7 @@ module.exports = withNativeFederation({
 
   shared: {
     // Share all standard Angular dependencies (core, common, router, etc.)
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
 
     // Explicitly share custom/internal libraries.
     // Setting 'strictVersion: false' allows for slightly different versions
@@ -31,7 +31,7 @@ module.exports = withNativeFederation({
 
     // Explicitly share zone.js as a singleton. This is CRUCIAL for Angular
     // to prevent change detection errors if you aren't running zoneless.
-    'zone.js': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+    // 'zone.js': { singleton: true, strictVersion: true, requiredVersion: 'auto' },
   },
 
   skip: [

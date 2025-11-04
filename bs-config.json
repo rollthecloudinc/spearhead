@@ -1,0 +1,5 @@
+{
+  "port": 4000,
+  "cors": true,
+  "server": { "baseDir": "./dist/spear/browser" }
+}

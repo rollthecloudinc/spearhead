@@ -141,7 +141,7 @@ export function markedOptionsFactory(): MarkedOptions {
         AliasModule,
         PanelsModule,
         RenderModule,
-        // PagealiasModule, The PageAlias module is causing problems when prerendering the index / page. Therefore, remove it since we don't use PanelPageListItems at this time.
+        PagealiasModule, // The PageAlias module is causing problems when prerendering the index / page. Therefore, remove it since we don't use PanelPageListItems at this time.
         // FormlyModule,
         TransformModule,
         AwcogModule,

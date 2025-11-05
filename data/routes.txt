@@ -4,3 +4,5 @@
 /native_forms_rebuild_v1/manage
 /dev-test-virtual-list-flex-v1
 /dev-test-virtual-list-flex-v1/manage
+/test-module-federation
+/test-module-federation/manage

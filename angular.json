@@ -124,6 +124,12 @@
                 }
               ]
             },
+            "local": {
+              "outputHashing": "all",
+              "extractLicenses": true,
+              "optimization": false,
+              "sourceMap": true
+            },
             "production-server": {
               "outputHashing": "all",
               "extractLicenses": true,
@@ -187,6 +193,9 @@
           },
           "development": {
             "target": "spear:serve-original:development"
+          },
+          "local": {
+            "target": "spear:serve-original:local"
           }
         },
           "defaultConfiguration": "development"
@@ -203,6 +212,9 @@
             },
             "development": {
               "buildTarget": "spear:esbuild:development"
+            },
+            "local": {
+              "buildTarget": "spear:esbuild:local"
             }
           },
           "defaultConfiguration": "development"

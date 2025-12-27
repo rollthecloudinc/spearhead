@@ -7,5 +7,10 @@ export const panelpages = [
     ['63a4219d-254e-11ec-ab14-c613312e594f', '/dev-test-virtual-list-flex-v1' ],
     ['c38d4c9a-c2c7-4d9a-9d89-6a5c5425a372', '/justwork'],
     ['fbac7b08-0607-41e0-aebe-57d072b3c428', '/test-module-federation'],
-    ['602e1760-d580-46f4-9218-2e856f18aa33', '/test-outsider-app']
+    ['602e1760-d580-46f4-9218-2e856f18aa33', '/test-outsider-app'],
+    ['0340ec29-fc39-4d4a-92ba-09caa0fb9d8f', '/test-gallery-int-original'],
+    ['6dbdcd27-3bc4-44fc-9f47-ef1b2e0473b1', '/test-gallery-int'],
+    ['4c97f5a8-651e-4a4d-9c2d-c946cf4d8c30', '/test-quill-int'],
+    ['50bea885-4516-4883-8e47-3b8cffb5cf58', '/test-quill-view-int'],
+    ['0904fb75-1311-4763-b6e3-043239fb3a89', '/homes']
 ];

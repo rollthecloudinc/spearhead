@@ -8,3 +8,5 @@
 /test-module-federation/manage
 /test-outsider-app
 /test-outsider-app/manage
+/test-quill-int/dbc2446a-f83f-40e0-b15a-8bed2e8eaff0
+/test-quill-view-int/dbc2446a-f83f-40e0-b15a-8bed2e8eaff0

@@ -12,5 +12,6 @@ export const panelpages = [
     ['6dbdcd27-3bc4-44fc-9f47-ef1b2e0473b1', '/test-gallery-int'],
     ['4c97f5a8-651e-4a4d-9c2d-c946cf4d8c30', '/test-quill-int'],
     ['50bea885-4516-4883-8e47-3b8cffb5cf58', '/test-quill-view-int'],
+    ['d4c19130-45fe-4188-96d1-7aaa276f6c3f', '/test-tabulator-int'],
     ['0904fb75-1311-4763-b6e3-043239fb3a89', '/homes']
 ];

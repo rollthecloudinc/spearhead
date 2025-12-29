@@ -12,3 +12,5 @@
 /test-quill-int/manage
 /test-quill-view-int/dbc2446a-f83f-40e0-b15a-8bed2e8eaff0
 /test-quill-view-int/manage
+/test-tabulator-int
+/test-tabulator-int/manage

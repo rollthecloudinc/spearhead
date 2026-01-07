@@ -5,7 +5,6 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withJsonp
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { NxModule } from '@nrwl/angular';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 // Base auth
 import { AuthModule, LogoutInterceptor} from '@rollthecloudinc/auth';
@@ -58,7 +57,6 @@ import { OrdainModule } from '@rollthecloudinc/ordain';
 import { DparamModule } from '@rollthecloudinc/dparam';
 import { DetourModule } from '@rollthecloudinc/detour';
 
-// import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 // import { MonacoEditorModule } from 'ngx-monaco-editor';
 
 const routes = [
@@ -96,7 +94,6 @@ export function markedOptionsFactory(): MarkedOptions {
         FormsModule,
         ReactiveFormsModule,
         //BrowserAnimationsModule,
-        FlexLayoutModule,
         NgxJsonViewerModule,
         // TransferHttpCacheModule,
         MarkdownModule.forRoot({

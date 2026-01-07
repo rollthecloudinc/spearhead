@@ -36,8 +36,7 @@
             "target": "spear:esbuild:development-server",
             "ssr": true,
             "prerender": {
-              "discoverRoutes": false,
-              "routesFile": "data/routes.txt"
+              "discoverRoutes": false
             },
             "externalDependencies": [
               "@softarc/native-federation-runtime"

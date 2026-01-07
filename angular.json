@@ -141,8 +141,7 @@
                 "entry": "projects/spear/server.ts"
               },
               "prerender": {
-                "discoverRoutes": false,
-                "routesFile": "data/routes.txt"
+                "discoverRoutes": false
               },
               "fileReplacements": [
                 {
@@ -163,8 +162,7 @@
                 "entry": "projects/spear/server.ts"
               },
               "prerender": {
-                "discoverRoutes": false,
-                "routesFile": "data/routes.txt"
+                "discoverRoutes": false
               },
               "fileReplacements": [
                 {
@@ -340,8 +338,7 @@
           "options": {
             "browserTarget": "spear:build:development",
             "serverTarget": "spear:server:development",
-            "discoverRoutes": false,
-            "routesFile": "data/routes.txt"
+            "discoverRoutes": false
           },
           "configurations": {
             "development": {

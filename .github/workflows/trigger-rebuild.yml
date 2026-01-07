@@ -1,0 +1,19 @@
+name: Trigger Rebuild
+on:
+  repository_dispatch:
+    types: [run-workflow]
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  build:
+    uses: rollthecloudinc/quell/.github/workflows/druid-workflow.yml@master
+    with:
+      ENVIRONMENT: github.event.client_payload.environment
+    secrets:
+      RTC_GITHUB_REGISTRY: ${{ secrets.RTC_GITHUB_REGISTRY }}
+      ENVIRONMENT_NAME: ${{ secrets.ENVIRONMENT_NAME }}
+      SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+      DESTINATION_REPO: ${{ secrets.DESTINATION_REPO }}
+      TARGET_BRANCH: ${{ secrets.TARGET_BRANCH }}
+      OBJECTS_REPO: ${{ secrets.OBJECTS_REPO }}

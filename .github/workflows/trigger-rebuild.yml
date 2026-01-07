@@ -9,7 +9,7 @@ jobs:
   build:
     uses: rollthecloudinc/quell/.github/workflows/druid-workflow.yml@master
     with:
-      ENVIRONMENT: github.event.client_payload.environment
+      ENVIRONMENT: ${{ github.event.client_payload.environment }}
     secrets:
       RTC_GITHUB_REGISTRY: ${{ secrets.RTC_GITHUB_REGISTRY }}
       ENVIRONMENT_NAME: ${{ secrets.ENVIRONMENT_NAME }}

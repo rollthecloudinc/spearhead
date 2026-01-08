@@ -36,8 +36,7 @@
             "target": "spear:esbuild:development-server",
             "ssr": true,
             "prerender": {
-              "discoverRoutes": false,
-              "routesFile": "data/routes.txt"
+              "discoverRoutes": true
             },
             "externalDependencies": [
               "@softarc/native-federation-runtime"
@@ -142,8 +141,7 @@
                 "entry": "projects/spear/server.ts"
               },
               "prerender": {
-                "discoverRoutes": false,
-                "routesFile": "data/routes.txt"
+                "discoverRoutes": true
               },
               "fileReplacements": [
                 {
@@ -164,8 +162,7 @@
                 "entry": "projects/spear/server.ts"
               },
               "prerender": {
-                "discoverRoutes": false,
-                "routesFile": "data/routes.txt"
+                "discoverRoutes": true
               },
               "fileReplacements": [
                 {
@@ -341,8 +338,7 @@
           "options": {
             "browserTarget": "spear:build:development",
             "serverTarget": "spear:server:development",
-            "discoverRoutes": false,
-            "routesFile": "data/routes.txt"
+            "discoverRoutes": true
           },
           "configurations": {
             "development": {

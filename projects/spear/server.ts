@@ -1,27 +1,3 @@
-import { createApplication } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-import { RouteGeneratorService } from './src/app/services/route-generator.service.js';
-
-// ⭐ Angular DI prerender route generation
-let generatedRoutesPromise = (async () => {
-  const app = await createApplication({
-    providers: [
-      provideHttpClient(),
-      RouteGeneratorService
-    ]
-  });
-
-  const gen = app.injector.get(RouteGeneratorService);
-
-  const routes = await gen.getRoutes();
-
-  console.log('[NF SSR] Dynamic prerender routes:', routes);
-
-  return routes;
-})();
-
-export const ssrRoutes = generatedRoutesPromise;
-
 // -------------------------------------------------------
 // NATIVE FEDERATION SERVER BOOTSTRAP
 // -------------------------------------------------------

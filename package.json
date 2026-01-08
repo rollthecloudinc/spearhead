@@ -10,6 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "build:server": "ng run spear:server:production",
+    "build:browser": "ng run spear:build:production",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
     "prerender:dev": "npm run build:browser && npm run build:server && node tools/prerender-with-di.mjs",
     "prerender:prod": "npm run build:browser && npm run build:server && node tools/prerender-with-di.mjs"

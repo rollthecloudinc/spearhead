@@ -9,8 +9,8 @@
     // (inherited from the root tsconfig.json).
     //"module": "es2020",
 // ✅ REVERT: Use CJS-compatible module settings
-    "module": "es2020",
-    "moduleResolution": "bundler", // Or 'node' for traditional CJS resolution
+    "module": "CommonJS",
+    "moduleResolution": "node", // Or 'node' for traditional CJS resolution
     "target": "ES2022",
     
     // Keep this, as it helps with the CJS-to-ESM conversion internally

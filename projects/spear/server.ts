@@ -1,3 +1,25 @@
+import { createApplication } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
+import { RouteGeneratorService } from './src/app/services/route-generator.service.js';
+
+export async function getPrerenderRoutes() {
+  console.log('[NF] Running dynamic prerender route discovery...');
+
+  const app = await createApplication({
+    providers: [
+      provideHttpClient(),
+      RouteGeneratorService
+    ]
+  });
+
+  const gen = app.injector.get(RouteGeneratorService);
+  const routes = await gen.getRoutes();
+
+  console.log('[NF] Discovered routes:', routes);
+
+  return routes;
+}
+
 // -------------------------------------------------------
 // NATIVE FEDERATION SERVER BOOTSTRAP
 // -------------------------------------------------------

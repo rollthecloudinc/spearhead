@@ -337,12 +337,10 @@
           "defaultConfiguration": ""
         },
         "prerender": {
-          "builder": "@angular-devkit/build-angular:prerender",
+          "builder": "@angular-architects/native-federation:prerender",
           "options": {
             "browserTarget": "spear:build:development",
-            "serverTarget": "spear:server:development",
-            "discoverRoutes": false,
-            "routesFile": "data/routes.txt"
+            "serverTarget": "spear:server:development"
           },
           "configurations": {
             "development": {

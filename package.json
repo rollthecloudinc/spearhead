@@ -11,8 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "prerender:dev": "ng run spear:prerender:development",
-    "prerender:prod": "ng run spear:prerender:production"
+    "prerender:dev": "node tools/prerender.mjs",
+    "prerender:prod": "node tools/prerender.mjs"
   },
   "browser": {
     "vm": false

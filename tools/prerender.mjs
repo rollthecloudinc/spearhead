@@ -1,6 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { prerender } from '@angular-devkit/build-angular';
+
+// CommonJS-compatible import of prerender()
+import pkg from '@angular-devkit/build-angular';
+const { prerender } = pkg;
 
 function loadDynamicRoutes() {
   const base = path.resolve(
@@ -13,7 +16,9 @@ function loadDynamicRoutes() {
   for (const file of fs.readdirSync(base)) {
     if (!file.endsWith('.json')) continue;
 
-    const json = JSON.parse(fs.readFileSync(path.join(base, file), 'utf8'));
+    const json = JSON.parse(
+      fs.readFileSync(path.join(base, file), 'utf8')
+    );
 
     if (json.path) {
       out.push(json.path);
@@ -21,15 +26,18 @@ function loadDynamicRoutes() {
     }
   }
 
+  // root
   out.push('/');
+
   return out;
 }
 
 const routes = loadDynamicRoutes();
+
 console.log('Dynamic prerender routes:', routes);
 
 await prerender({
-  browserTarget: 'spear:build:development',
-  serverTarget: 'spear:server:development',
-  routes,
+  browserTarget: 'spear:build:production',
+  serverTarget: 'spear:server:production',
+  routes
 });

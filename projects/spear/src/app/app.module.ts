@@ -50,7 +50,7 @@ import { RefineryModule } from '@rollthecloudinc/refinery';
 import { SheathModule } from '@rollthecloudinc/sheath';
 // import { ReactModule } from '@rollthecloudinc/react';
 import { CloudwatchRumSettings, CLOUDWATCH_RUM_SETTINGS } from '@rollthecloudinc/awrum';
-import { panelpages } from '../environments/panelpages';
+import { panelpages } from '../environments/panelpages3';
 import { createEditMatcher, createMatcher, EditPanelPageComponent, PagesModule, PanelPageRouterComponent, PAGES_SETTINGS, PagesSettings } from '@rollthecloudinc/pages';
 import { panelpages as panelpages2 } from '../data/panelpages';
 import { OrdainModule } from '@rollthecloudinc/ordain';

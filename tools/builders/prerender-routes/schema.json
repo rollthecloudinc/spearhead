@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "properties": {
+    "outputPath": { "type": "string", "default": "data/routes2.txt" },
+    "routesPath": { "type": "string", "default": "projects/spear/src/environments/panelpages3.ts" }
+  }
+}

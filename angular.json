@@ -37,7 +37,7 @@
             "ssr": true,
             "prerender": {
               "discoverRoutes": false,
-              "routesFile": "data/routes.txt"
+              "routesFile": "data/routes2.txt"
             },
             "externalDependencies": [
               "@softarc/native-federation-runtime"
@@ -143,7 +143,7 @@
               },
               "prerender": {
                 "discoverRoutes": false,
-                "routesFile": "data/routes.txt"
+                "routesFile": "data/routes2.txt"
               },
               "fileReplacements": [
                 {
@@ -165,7 +165,7 @@
               },
               "prerender": {
                 "discoverRoutes": false,
-                "routesFile": "data/routes.txt"
+                "routesFile": "data/routes2.txt"
               },
               "fileReplacements": [
                 {
@@ -342,7 +342,7 @@
             "browserTarget": "spear:build:development",
             "serverTarget": "spear:server:development",
             "discoverRoutes": false,
-            "routesFile": "data/routes.txt"
+            "routesFile": "data/routes2.txt"
           },
           "configurations": {
             "development": {
@@ -353,6 +353,13 @@
               "browserTarget": "spear:build:production",
               "serverTarget": "spear:server:production"
             }
+          }
+        },
+        "extract-routes": {
+          "builder": "./tools/builders:generate-routes",
+          "options": {
+            "outputPath": "data/routes2.txt",
+            "routesPath": "projects/spear/src/environments/panelpages3.ts"
           }
         }
       }

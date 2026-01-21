@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, PLATFORM_ID, Inject, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { AuthFacade } from '@rollthecloudinc/auth';
 import { Router } from '@angular/router';
@@ -18,13 +18,14 @@ export class AppComponent implements OnInit {
   isAuthenticated: boolean;
   @Output()
   menuClicked = new EventEmitter();
+  platformId = inject(PLATFORM_ID);
   constructor(
-    @Inject(PLATFORM_ID) platformId: Object,
+    //@Inject(PLATFORM_ID) platformId: Object,
     private authFacade: AuthFacade, 
     private router: Router,
     publicApiBridge: PublicApiBridgeService
   ) {
-    if (isPlatformBrowser(platformId)) {
+    if (isPlatformBrowser(this.platformId)) {
       bridge = publicApiBridge;
     }
     /*this.oktaAuth.$authenticationState.subscribe(

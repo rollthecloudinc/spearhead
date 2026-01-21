@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "generate-routes": {
+      "implementation": "./dist/tools/builders/prerender-routes/index",
+      "schema": "./prerender-routes/schema.json",
+      "description": "Extracts dynamic routes from DI"
+    }
+  }
+}

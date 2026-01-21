@@ -83,6 +83,8 @@ async function loadDynamicRoutes({ dpm, tokenizer, context, serializer }: { dpm:
   const out = [];
   const routes: Array<Array<string>> = [];
 
+  out.push('/');
+
   for (const f of fs.readdirSync(base)) {
     if (!f.endsWith('.json')) continue;
 

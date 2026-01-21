@@ -11,8 +11,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "prerender:dev": "ng run spear:esbuild:development",
-    "prerender:prod": "ng run spear:esbuild:production",
+    "prerender:dev": "ng run spear:build-server:development",
+    "prerender:prod": "ng run spear:build-server:production",
     "get-routes": "npx tsc --project tools/tsconfig.tools.json",
     "extract-routes": "ng run spear:extract-routes"
   },

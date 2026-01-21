@@ -6,6 +6,14 @@
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
+/tools/builders/dist
+
+# generated routing and prerendering pages
+/data/routes2.txt
+# /projects/spear/src/environments/panelpages3.ts
+
+# Objects
+projects/spear/src/assets/objects/
 
 # dependencies
 /node_modules

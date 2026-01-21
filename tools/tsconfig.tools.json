@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "CommonJS",
+    "target": "ES2022",
+    "moduleResolution": "node", // Add this
+    "lib": ["ES2022", "dom"],
+    "outDir": "builders/dist",
+    "esModuleInterop": true,   // Important for module loading
+    "skipLibCheck": true
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "fullTemplateTypeCheck": true,
+    "strictTemplates": true
+  },
+  "files": [
+    "builders/prerender-routes/index.ts"
+  ]
+}

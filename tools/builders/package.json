@@ -1,0 +1,5 @@
+{
+  "name": "local-builders",
+  "version": "1.0.0",
+  "builders": "./builders.json"
+}

@@ -91,7 +91,10 @@ async function loadDynamicRoutes({ dpm, tokenizer, context, serializer }: { dpm:
     const json = JSON.parse(fs.readFileSync(path.join(base, f), 'utf8'));
     const pp = new PanelPage(json)
 
-    if (pp.path && pp.path != '') {
+    // Must have a path
+    // Path must not be empty string
+    // Exclude decorator panel pages from having an explicit router navigation item
+    if (pp.path && pp.path != '' && pp.path != '*') {
         routes.push([pp.id, pp.path]);
     }
 

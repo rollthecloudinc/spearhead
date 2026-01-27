@@ -1,6 +1,6 @@
 import { BrowserModule, provideClientHydration /*, BrowserTransferStateModule */ } from '@angular/platform-browser';
 import { NgModule, SecurityContext, PLATFORM_ID, inject, provideAppInitializer, APP_ID } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withJsonpSupport } from '@angular/common/http';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,7 +24,7 @@ import { PanelPage, PanelsModule, PanelsSettings, PANELS_SETTINGS } from '@rollt
 import { BridgeModule } from '@rollthecloudinc/bridge';
 import { StateModule } from '@rollthecloudinc/state';
 import { AwcogModule, CognitoSettings, COGNITO_SETTINGS } from '@rollthecloudinc/awcog';
-import { initializeIdbDataFactory, KeyvalModule } from '@rollthecloudinc/keyval';
+import { initializeIdbDataFactory, KeyvalModule, initializeInMemoryDataFactory } from '@rollthecloudinc/keyval';
 import { MarkdownModule, MARKED_OPTIONS, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -173,7 +173,9 @@ export function markedOptionsFactory(): MarkedOptions {
         { provide: HTTP_INTERCEPTORS, useClass: LogoutInterceptor, multi: true },
         { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
         provideAppInitializer(() => {
-        const initializerFn = (initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => new PanelPage(p as any)) }))(inject(PLATFORM_ID));
+        const platformId = inject(PLATFORM_ID);
+        const initializerFn = isPlatformBrowser(platformId) ? (initializeIdbDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => { console.log('route injection', new PanelPage(p as any)); return new PanelPage(p as any); }) }))(platformId) : 
+        (initializeInMemoryDataFactory({ key: ({ data }) => 'panelpage__' + data.id, data: panelpages2.map(p => { console.log('route injection', new PanelPage(p as any)); return new PanelPage(p as any); }) }))();
         return initializerFn();
       }),
         provideHttpClient(withInterceptorsFromDi(), withJsonpSupport()),

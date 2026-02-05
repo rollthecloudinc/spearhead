@@ -81,7 +81,8 @@
             "styles": [
               "projects/spear/src/styles.scss",
               "projects/spear/src/theme.scss",
-              "node_modules/prismjs/themes/prism-okaidia.css"
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "projects/spear/src/panelpage-styles/panelpage-dynamic-styles.scss"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.umd.js",

@@ -91,6 +91,11 @@ async function loadDynamicRoutes({ dpm, tokenizer, context, serializer }: { dpm:
     const json = JSON.parse(fs.readFileSync(path.join(base, f), 'utf8'));
     const pp = new PanelPage(json)
 
+    // DEBUG: Figure out why build is prerendering with error on /test-popover-int
+    if (pp.path && pp.path in ['/test-popover-int']) {
+      continue
+    }
+
     // Must have a path
     // Path must not be empty string
     // Exclude decorator panel pages from having an explicit router navigation item
